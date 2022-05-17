@@ -1,0 +1,43 @@
+
+   <app-header></app-header>
+    
+    <mat-sidenav-container>
+            <mat-sidenav class="mat-elevation-z8">
+                <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+                    <h4 class="name">John Smith</h4> -->
+                <button mat-button class="menu-button">
+                    <mat-icon>home</mat-icon>
+                    <span>Summary</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-button class="menu-button">
+                    <mat-icon>Measurement</mat-icon>
+                    <span>Detailed <br />Measurement</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-button class="menu-button">
+                    <mat-icon>Foot</mat-icon>
+                    <span>Population<br /> 3D foot</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-button class="menu-button">
+                    <mat-icon>Data</mat-icon>
+                    <span>Data Export</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-button class="menu-button">
+                    <mat-icon>Ad</mat-icon>
+                    <span>Advanced <br />Data Export</span>
+                </button>
+        
+                <mat-divider></mat-divider>
+        
+            </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="content mat-elevation-z8">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+<app-footer></app-footer>
