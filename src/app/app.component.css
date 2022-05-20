@@ -67,7 +67,7 @@ mat-divider {
     margin-bottom: 16px;
     background-color: rgba(255, 255, 255, 0.5);
 }
-.scrollbar-hidden::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
   }
   
@@ -76,3 +76,8 @@ mat-divider {
     -ms-overflow-style: none;
     scrollbar-width: none; /* Firefox */
   }
+  .active{
+    color:rgb(244, 182, 13);
+    text-decoration: underline; 
+    font-weight: 500;
+}

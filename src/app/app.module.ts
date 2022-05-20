@@ -20,7 +20,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
-
+import { ThreeDfootComponent } from './tableau/three-dfoot/three-dfoot.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from  '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import {MatDividerModule} from '@angular/material/divider';
     SignupComponent,
     HeaderComponent,
     FooterComponent,
-    TableauComponent
+    TableauComponent,
+    ThreeDfootComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,9 @@ import {MatDividerModule} from '@angular/material/divider';
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [ApiService, CookieService, {
             provide: HTTP_INTERCEPTORS,

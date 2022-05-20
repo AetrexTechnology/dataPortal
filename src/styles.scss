@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge add Firefox */
+      .scrollbar-hidden {
+        -ms-overflow-style: none;
+        scrollbar-width: none; /* Firefox */
+      }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge add Firefox */
+      .scrollbar-hidden {
+        -ms-overflow-style: none;
+        scrollbar-width: none; /* Firefox */
+      } }

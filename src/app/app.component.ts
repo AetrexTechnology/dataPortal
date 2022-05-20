@@ -10,6 +10,10 @@ export class AppComponent {
   @ViewChild(MatSidenav)
  sidenav!: MatSidenav;
  title = 'material';
+dashboard1:boolean= true;
+dashboard2:boolean= true;
+dashboard3:boolean= true;
+
 
   constructor(private observer: BreakpointObserver) {}
 
@@ -23,5 +27,8 @@ export class AppComponent {
         this.sidenav.open();
       }
     });
+  }
+  clickEvent(){
+window.location.reload();
   }
 }

@@ -1,43 +1,74 @@
+<app-header></app-header>
 
-   <app-header></app-header>
-    
-    <mat-sidenav-container>
-            <mat-sidenav class="mat-elevation-z8">
-                <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+<mat-sidenav-container>
+    <mat-sidenav class="mat-elevation-z8">
+        <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
                     <h4 class="name">John Smith</h4> -->
-                <button mat-button class="menu-button">
-                    <mat-icon>home</mat-icon>
-                    <span>Summary</span>
-                </button>
-                <mat-divider></mat-divider>
-                <button mat-button class="menu-button">
-                    <mat-icon>Measurement</mat-icon>
-                    <span>Detailed <br />Measurement</span>
-                </button>
-                <mat-divider></mat-divider>
-                <button mat-button class="menu-button">
-                    <mat-icon>Foot</mat-icon>
-                    <span>Population<br /> 3D foot</span>
-                </button>
-                <mat-divider></mat-divider>
-                <button mat-button class="menu-button">
-                    <mat-icon>Data</mat-icon>
-                    <span>Data Export</span>
-                </button>
-                <mat-divider></mat-divider>
-                <button mat-button class="menu-button">
-                    <mat-icon>Ad</mat-icon>
-                    <span>Advanced <br />Data Export</span>
-                </button>
-        
-                <mat-divider></mat-divider>
-        
-            </mat-sidenav>
-        <mat-sidenav-content>
-            <div class="content mat-elevation-z8">
-                <router-outlet></router-outlet>
-            </div>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+            
+            <button mat-button class="menu-button" (click)="clickEvent()">
+            <mat-icon>home</mat-icon>
+            <a routerLink="/dashboard" routerLinkActive="active"><span style="color: #f0f0f0;">Summary</span></a> 
+            </button>
+        <mat-divider></mat-divider>
+          <button mat-button class="menu-button" (click)="clickEvent()">
+            <img src="../assets/images/length.png" width="36px" height="36px"style="margin-left: -6px">
+            <a routerLink="/dashboard2" routerLinkActive="active">
+                <span style="color: #f0f0f0;">Measurement</span>
+            </a> 
+            </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button">
+            <img  src="../assets/images/footicon.png" width="36px" height="36px">
+            <a routerLink="/dashboard3" routerLinkActive="active">
+            <span style="color: #f0f0f0;">&nbsp;3DFoot</span> </a>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button">
+            <mat-icon>get_app</mat-icon>
+            <span>Data Export</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button">
+            <mat-icon>more</mat-icon>
+            <span>Advanced</span>
+            <h3 style="margin-left: 22px;">Data Export</h3>
+        </button>
 
-<app-footer></app-footer>
+        <mat-divider></mat-divider>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+   <div class="content mat-elevation-z8" *ngIf="dashboard1">
+            <!-- <script type='text/javascript'
+                src='https://prod-useast-a.online.tableau.com/javascripts/api/viz_v1.js'></script>
+            <div class='tableauPlaceholder' style='width: 1000px; height: 827px;'><object class='tableauViz'
+                    width='1000' height='827' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fprod-useast-a.online.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='&#47;t&#47;aetrex' />
+                    <param name='name' value='DataPortal-1&#47;Dashboard1' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='showAppBanner' value='false' />
+                </object></div>
+        </div>  -->
+        <!-- <div class="content mat-elevation-z8" *ngIf="dashboard2">
+            <script type='text/javascript'
+                src='https://prod-useast-a.online.tableau.com/javascripts/api/viz_v1.js'></script>
+            <div class='tableauPlaceholder' style='width: 1000px; height: 827px;'><object class='tableauViz'
+                    width='1000' height='827' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fprod-useast-a.online.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='&#47;t&#47;aetrex' />
+                    <param name='name' value='DataPortal-1&#47;Dashboard3' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='showAppBanner' value='false' />
+                </object></div>
+        </div> -->
+        <router-outlet></router-outlet>
+    </div> 
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <app-footer></app-footer> -->
