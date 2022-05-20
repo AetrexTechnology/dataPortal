@@ -1,83 +1,24 @@
 <div class='tableauPlaceholder' style='width: 1000px; height: 827px;'>
     <div class="flex-container">
-        <div style="flex-grow: 4;">
-            <mat-select placeholder="Country" [(ngModel)]="selectedValue1" name="item" style="margin-bottom:40px">
+        <div style="flex-grow:3;">
+          <mat-label style="color: black; font-size: medium;">Country</mat-label>
+            <mat-select placeholder="select Country" [(ngModel)]="selectedValue1" name="item" style="margin-bottom:10px;">
                 <mat-option *ngFor="let item of items" [value]="item.value">{{item.value}}
                 </mat-option>
             </mat-select>
-            <mat-select placeholder="male" [(ngModel)]="selectedValue2" name="item2"style="margin-bottom:40px">
+            <mat-label style="color: black;font-size: medium;">Gender</mat-label>
+            <mat-select placeholder="Select Gender" [(ngModel)]="selectedValue2" name="item2" style="margin-bottom:10px;">
                 <mat-option *ngFor="let item of items2" [value]="item.value">{{item.value}}
                 </mat-option>
             </mat-select>
-            <mat-select placeholder="7" [(ngModel)]="selectedValue3" name="item3"style="margin-bottom:40px">
+            <mat-label style="color: black;font-size: medium;">Size</mat-label>
+            <mat-select placeholder="Select size" [(ngModel)]="selectedValue3" name="item3" style="margin-bottom:10px;">
                 <mat-option *ngFor="let item of items3" [value]="item.value">{{item.value}}
                 </mat-option>
             </mat-select>
-            <!-- <mat-select placeholder="Country" name="item" style="margin-bottom:40px;background-color: w;">
-                <mat-option>United States</mat-option>
-                <mat-option>India</mat-option>
-                <mat-option>Korea</mat-option>
-              </mat-select>
-              <mat-select placeholder="Gender" name="item" style="margin-bottom:40px">
-                <mat-option>Male</mat-option>
-                <mat-option>Female</mat-option>
-              </mat-select>
-              <mat-select placeholder="Size" name="item" style="margin-bottom:40px">
-                <mat-option>7</mat-option>
-                <mat-option>6</mat-option>
-                <mat-option>10</mat-option>
-              </mat-select> -->
         </div>
-        <div style="flex-grow: 4;">
-            <img src="../../../assets/images/foot.PNG"  width="300" height="300">
-        </div>
+        <div style="flex-grow: 10;">
+          <img src="../../../assets/images/foot2.PNG"  width="600" height="600">
       </div>
-      <div>
-        <div class="example-container mat-elevation-z8">
-            <table style="width:100%">
-                <tr>
-                  <td> </td> 
-                  <td>L Length</td>
-                  <td>R Length</td>
-                  <td>L Width</td>
-                  <td>R Width</td>
-                  <td>L Girth</td>
-                  <td>R Girth</td>
-                  <td>L Arch Height</td>
-                  <td>R Arch Height</td>
-                  <td>R Instep Height</td>
-                  <td>R Instep Height</td>
-                </tr>
-                <tr>
-                <td>Size 7 F US </td>
-                  <td>24.43</td>
-                  <td>24.43</td>
-                  <td>8.72</td>
-                  <td>8.72</td>
-                  <td>22.25</td>
-                  <td>22.25</td>
-                  <td>1.45</td>
-                  <td>1.45</td>
-                  <td>6.29</td>
-                  <td>6.29</td>
-                  
-                </tr>
-                <tr>
-                    <td>3D foot </td>
-                      <td>24.48</td>
-                      <td>23.95</td>
-                      <td>8.85</td>
-                      <td>8.79</td>
-                      <td>22.1</td>
-                      <td>22.07</td>
-                      <td>1.57</td>
-                      <td>1.49</td>
-                      <td>6.41</td>
-                      <td>6.23</td>
-                      
-                    </tr>
-              </table>
-          </div>
-          
       </div>
 </div>

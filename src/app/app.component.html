@@ -7,7 +7,7 @@
             
             <button mat-button class="menu-button" (click)="clickEvent()">
             <mat-icon>home</mat-icon>
-            <a routerLink="/dashboard" routerLinkActive="active"><span style="color: #f0f0f0;">Summary</span></a> 
+            <a routerLink="/dashboard"  (click)="clickEvent()" routerLinkActive="active"><span style="color: #f0f0f0;">Summary</span></a> 
             </button>
         <mat-divider></mat-divider>
           <button mat-button class="menu-button" (click)="clickEvent()">
@@ -18,20 +18,19 @@
             </button>
         <mat-divider></mat-divider>
         <button mat-button class="menu-button">
-            <img  src="../assets/images/footicon.png" width="36px" height="36px">
+            <img  src="../assets/images/footicon.png" width="22px" height="22px">
             <a routerLink="/dashboard3" routerLinkActive="active">
-            <span style="color: #f0f0f0;">&nbsp;Average 3D Foot</span> </a>
+            <span style="color: #f0f0f0;">&nbsp;&nbsp;Average 3D Foot</span> </a>
         </button>
         <mat-divider></mat-divider>
         <button mat-button class="menu-button">
             <mat-icon>get_app</mat-icon>
-            <span>Data Export<br /> Advanced Data Export <sup>Premium</sup></span>
+            <span>Data Export </span>
+            
         </button>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button">
-            <mat-icon>more</mat-icon>
-            <span>Advanced</span>
-            <h3 style="margin-left: 22px;">Data Export</h3>
+        <button mat-button class="menu-button" style="font-size:medium">
+            <h3 style="font-size: large;">Advanced Data <br />Export<sup style="font-size:xx-small;padding:3px">Premium</sup></h3>
         </button>
 
         <mat-divider></mat-divider>

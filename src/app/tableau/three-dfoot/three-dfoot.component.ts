@@ -49,18 +49,6 @@ export class ThreeDfootComponent implements OnInit {
 
 }
 export interface Element {
-  L_Length:number;
-  R_Length:number;
-  L_Width:number;
-  R_Width:number;
-  L_Girth:number;
-  R_Girth:number;
-  L_Arch_Height:number;
-  R_Arch_Height:number;
-  L_Instep_Height:number;
-  R_Instep_Height:number;
-  Size_7_F_US:number;
-  position:number;
 
 }
 
