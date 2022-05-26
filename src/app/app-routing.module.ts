@@ -16,9 +16,8 @@ const routes: Routes = [
   { path: 'dashboard3', component: ThreeDfootComponent,canActivate: [AuthGuard]}
 
 ];
-
 @NgModule({
-  imports: [RouterModule,RouterModule.forRoot(routes)],
+  imports: [RouterModule,RouterModule.forRoot(routes,{onSameUrlNavigation:'reload'})],
   exports: [RouterModule]
 })
 

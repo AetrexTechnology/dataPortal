@@ -23,6 +23,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { ThreeDfootComponent } from './tableau/three-dfoot/three-dfoot.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from  '@angular/material/select';
+import { SharedServiceService } from '../app/shared-service.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,7 @@ import { MatSelectModule } from  '@angular/material/select';
     MatTableModule,
     MatSelectModule
   ],
-  providers: [ApiService, CookieService, {
+  providers: [ApiService, CookieService,SharedServiceService, {
             provide: HTTP_INTERCEPTORS,
             useClass: ApiInterceptor,
             multi: true

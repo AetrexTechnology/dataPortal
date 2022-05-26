@@ -5,7 +5,10 @@
   .example-spacer {
     flex: 1 1 auto;
   }
-  .AppLogo{
+  .mat-toolbar{
+    background-color:rgb(217, 234, 239);
+  }
+  /* .AppLogo{
     height: 68px;
     margin-top: 5px;
-  }
+  } */

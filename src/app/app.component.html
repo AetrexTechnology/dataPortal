@@ -2,37 +2,35 @@
 
 <mat-sidenav-container>
     <mat-sidenav class="mat-elevation-z8">
-        <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-                    <h4 class="name">John Smith</h4> -->
-            
-            <button mat-button class="menu-button" (click)="clickEvent()">
-            <mat-icon>home</mat-icon>
-            <a routerLink="/dashboard"  (click)="clickEvent()" routerLinkActive="active"><span style="color: #f0f0f0;">Summary</span></a> 
-            </button>
-        <mat-divider></mat-divider>
-          <button mat-button class="menu-button" (click)="clickEvent()">
-            <img src="../assets/images/length.png" width="36px" height="36px"style="margin-left: -6px">
-            <a routerLink="/dashboard2" routerLinkActive="active">
-                <span style="color: #f0f0f0;">Measurements</span>
+            <a routerLink="/dashboard" routerLinkActive="active">
+                <button mat-button class="menu-button" (click)="clickEvent()">
+                    Summary
+                </button> 
             </a> 
+        <mat-divider></mat-divider>
+        <a routerLink="/dashboard2" routerLinkActive="active">
+            <button mat-button class="menu-button" (click)="clickEvent()">
+               Measurements
             </button>
+        </a> 
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button">
-            <img  src="../assets/images/footicon.png" width="22px" height="22px">
-            <a routerLink="/dashboard3" routerLinkActive="active">
-            <span style="color: #f0f0f0;">&nbsp;&nbsp;Average 3D Foot</span> </a>
-        </button>
+        <a routerLink="/dashboard3" routerLinkActive="active">
+            <button mat-button class="menu-button" (click)="clickEvent()">
+                Average 3D Foot
+             </button>
+            </a>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button">
-            <mat-icon>get_app</mat-icon>
-            <span>Data Export </span>
-            
-        </button>
+        <a>
+            <button mat-button class="menu-button">
+                Data Export 
+             </button>
+            </a>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button" style="font-size:medium">
-            <h3 style="font-size: large;">Advanced Data <br />Export<sup style="font-size:xx-small;padding:3px">Premium</sup></h3>
-        </button>
-
+        <a>
+            <button mat-button class="menu-button">
+                <h3 style="font-size: large;">Advanced Data <br />Export<sup style="font-size:xx-small;padding:3px">Premium</sup></h3>
+             </button>
+            </a>
         <mat-divider></mat-divider>
 
     </mat-sidenav>
