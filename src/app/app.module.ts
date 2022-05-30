@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {DemoMaterialModule} from './material-module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS  } from "@angular/common/http";
@@ -23,7 +23,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import { ThreeDfootComponent } from './tableau/three-dfoot/three-dfoot.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from  '@angular/material/select';
-import { SharedServiceService } from '../app/shared-service.service'
+import { SharedServiceService } from '../app/shared-service.service';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { DataexportComponent } from './dataexport/dataexport.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { SharedServiceService } from '../app/shared-service.service'
     HeaderComponent,
     FooterComponent,
     TableauComponent,
-    ThreeDfootComponent
+    ThreeDfootComponent,
+    DataexportComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { SharedServiceService } from '../app/shared-service.service'
     MatSidenavModule,
     MatDividerModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [ApiService, CookieService,SharedServiceService, {
             provide: HTTP_INTERCEPTORS,

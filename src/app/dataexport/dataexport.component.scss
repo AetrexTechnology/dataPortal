@@ -1,0 +1,71 @@
+h3 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+  }
+  .flex-container {
+    display: flex;
+    background-color: #f1f1f1;
+    width: fit-content;
+  }
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+    // text-align: left;
+    // /* margin: 20px; */
+    margin-left: -11px;
+  }
+  .mat-header-row {
+    top: 0;
+    position: sticky;
+    z-index: 1;
+    background-color: inherit;
+}
+  .flex-container > div {
+    color: white;
+    // margin: 10px;
+    // text-align: center;
+    // line-height: 75px;
+    // font-size: 30px;
+  }
+  .fetchData{
+        text-align: left;
+        margin: 20px;
+        margin-left: 0px;
+  }
+  .multiselect{
+    font-size: 11px !important;
+      width:50% !important;
+  }
+  .multiselect-dropdown{
+    width:50% !important;
+    font-size: 11px !important;
+  }
+  ::ng-deep {
+    .is-invalid {
+      .dropdown-btn {
+        border: 1px solid red !important;
+      }
+    }
+    .multiselect-dropdown {
+        color: black;
+        width:80% !important;
+      .dropdown-btn {
+        .dropdown-multiselect__caret{
+            color: black;
+            margin-top: -2px !important;
+            right: -28px !important;
+        }
+        .selected-item {
+          &:hover {
+            box-shadow: 1px 1px 2px 0px #5a5a5a !important;
+          }
+        }
+      }
+    }
+  }

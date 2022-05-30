@@ -1,0 +1,153 @@
+<div style="margin:30px;margin-right:10px;height: 500px;"> 
+<div class="flex-container" style="width: 1050px;background-color: white;">
+    <div style="flex-grow: 1">
+        <label style="color: black;"><p style="font-size: large;">Gender</p></label>
+        <div *ngIf="dropdownListGender" class="container">
+            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
+                <ng-multiselect-dropdown
+                class="multiselect"
+                [placeholder]="'Select Gender'"
+                [settings]="dropdownSettings"
+                [data]="dropdownListGender"
+                [(ngModel)]="selectedItems"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeSelect($event)">
+              </ng-multiselect-dropdown>
+          </form>
+        </div>
+    </div>
+    <div style="flex-grow: 1">
+        <label style="color: black;"><p style="font-size: large;">County</p></label>
+        <div *ngIf="dropdownListCountry" class="container">
+            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
+                <ng-multiselect-dropdown
+                class="multiselect"
+                [placeholder]="'Select County'"
+                [settings]="dropdownSettings"
+                [data]="dropdownListCountry"
+                [(ngModel)]="selectedItems"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeSelect($event)">
+              </ng-multiselect-dropdown>
+          </form>
+        </div>
+    
+    </div>
+    <div style="flex-grow: 1">
+        <label style="color: black;"><p style="font-size: large;">US-Size</p></label>
+        <div *ngIf="dropdownListUSSize" class="container">
+            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
+                <ng-multiselect-dropdown
+                 class="multiselect"
+                [placeholder]="'Select US-Size'"
+                [settings]="dropdownSettings"
+                [data]="dropdownListUSSize"
+                [(ngModel)]="selectedItems"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeSelect($event)">
+              </ng-multiselect-dropdown>
+          </form>
+        </div>
+    
+    </div>
+    <div style="flex-grow: 1">
+        <label style="color: black;"><p style="font-size: large;">Measurements</p></label>
+        <div *ngIf="dropdownListMeasurements" class="container">
+            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
+                
+                <ng-multiselect-dropdown
+                 class="multiselect"
+                [placeholder]="'Select Measurements'"
+                [settings]="dropdownSettings"
+                [data]="dropdownListMeasurements"
+                [(ngModel)]="selectedItems"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeSelect($event)">
+              </ng-multiselect-dropdown>
+          </form>
+        </div>
+    </div>
+    <div style="flex-grow: 1">
+        <label style="color: black;"><p style="font-size: large;">Statistics</p></label>
+        <div *ngIf="dropdownListStatistics" class="container">
+            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
+                
+                <ng-multiselect-dropdown
+                 class="multiselect"
+                [placeholder]="'Select Statistics'"
+                [settings]="dropdownSettings"
+                [data]="dropdownListStatistics"
+                [(ngModel)]="selectedItems"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeSelect($event)">
+              </ng-multiselect-dropdown>
+          </form>
+        </div>
+    
+    </div>
+  </div>
+  <!-- <div class="fetchData">
+  </div> -->
+  <div class="" >
+    <div class="example-container mat-elevation-z8" style="margin-left: -13px;">
+        <div class="example-header" style=" padding: 18px;">
+                <button [disabled]="isDisabled"(click)="onsubmit()" mat-raised-button mat-button color="primary" width="250px"style="background-color: #6fa6cb;
+                color: black;">Fetch Data</button>
+          </div>
+        <mat-table *ngIf="showTable" #table [dataSource]="dataSource">
+            <!-- ['Gender', 'USSize', 'Length', 'width','Instep','ArchHeight','grith']; -->
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="Gender">
+            <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+            <mat-cell *matCellDef="let TableData"> {{TableData.Gender}} </mat-cell>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="USSize">
+            <mat-header-cell *matHeaderCellDef> US-Size </mat-header-cell>
+            <mat-cell *matCellDef="let TableData"> {{TableData.USSize}} </mat-cell>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="Length">
+            <mat-header-cell *matHeaderCellDef> Length </mat-header-cell>
+            <mat-cell *matCellDef="let TableData"> {{TableData.Length}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="width">
+            <mat-header-cell *matHeaderCellDef> width </mat-header-cell>
+            <mat-cell *matCellDef="let TableData"> {{TableData.width}} </mat-cell>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Instep">
+            <mat-header-cell *matHeaderCellDef> Instep </mat-header-cell>
+            <mat-cell *matCellDef="let TableData"> {{TableData.Instep}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="ArchHeight">
+            <mat-header-cell *matHeaderCellDef> ArchHeight</mat-header-cell>
+            <mat-cell *matCellDef="let TableData"> {{TableData.ArchHeight}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="grith">
+            <mat-header-cell *matHeaderCellDef> grith </mat-header-cell>
+            <mat-cell *matCellDef="let TableData"> {{TableData.grith}} </mat-cell>
+          </ng-container>   
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+
+  </div>
+  </div>
+
