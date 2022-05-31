@@ -19,7 +19,7 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
     dropdownListStatistics=[];
     selectedItems = [];
     dropdownSettings = {};
-    displayedColumns = ['Gender', 'USSize', 'Length', 'width','Instep','ArchHeight','grith'];
+    displayedColumns = ['Gender', 'USSize', 'AvgLength', 'StdLength','Length95percentile','Length75percentile','Length50percentile','Length25percentile',"Length5percentile","Avgwidth","StdWidth","Width95percentile","Width75percentile","Width50percentile","Width25percentile","Width5percentile","AvgInstep","StdInstep","Instep95percentile","Instep75percentile","Instep50percentile","Instep25percentile","Instep5percentile","AvgArchHeight","StdArchHeight","ArchHeight95percentile","ArchHeight75percentile","ArchHeight50percentile","ArchHeight25percentile","ArchHeight5percentile","AvgGirth","StdGirth","Girth95percentile","Girth75percentile","Girth50percentile","Girth25percentile","Girth5percentile"];
     dataSource = ELEMENT_DATA;
     // export interface Data {
     //   name: string;
@@ -151,28 +151,49 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
   export interface TableData {
     Gender:string,
     USSize:number,
-    Length:number,
-    width:number,
-    Instep:number,
-    ArchHeight:number,
-    grith:number,
-
+    AvgLength:number,
+    StdLength:number,
+    Length95percentile:number,
+    Length75percentile:number,
+    Length50percentile:number,
+    Length25percentile:number,
+    Length5percentile:number
+    Avgwidth:number,
+    StdWidth:number,
+    Width95percentile:number,
+    Width75percentile:number,
+    Width50percentile:number,
+    Width25percentile:number,
+    Width5percentile:number,
+    AvgInstep:number,
+    StdInstep:number,
+    Instep95percentile:number,
+    Instep75percentile:number,
+    Instep50percentile:number,
+    Instep25percentile:number,
+    Instep5percentile:number,
+    AvgArchHeight:number,
+    StdArchHeight:number,
+    ArchHeight95percentile:number,
+    ArchHeight75percentile:number,
+    ArchHeight50percentile:number,
+    ArchHeight25percentile:number,
+    ArchHeight5percentile:number,
+    AvgGirth:number,
+    StdGirth:number,
+    Girth95percentile:number,
+    Girth75percentile:number,
+    Girth50percentile:number,
+    Girth25percentile:number,
+    Girth5percentile:number
 }
   const ELEMENT_DATA: TableData[] = [
     // ['Gender', 'USSize', 'Length', 'width','Instep','ArchHeight','grith'];
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
-    {Gender:"Male", USSize:2, Length: 1.0079, width: 12,Instep:11,ArchHeight:1,grith:2},
+    {Gender:"Female", USSize:2,  AvgLength:249.00, StdLength:5.30, Length95percentile:254.38,Length75percentile:253.62,Length50percentile:250.01,Length25percentile:245.39,Length5percentile:242.20,Avgwidth:109.84,StdWidth:2.43,Width95percentile:112.86,Width75percentile:111.60,Width50percentile:109.55,Width25percentile:107.78,Width5percentile:107.21,AvgInstep:73.02,StdInstep:21.41,Instep95percentile:99.34,Instep75percentile:88.70,Instep50percentile:71.29,Instep25percentile:55.60,Instep5percentile:49.12,AvgArchHeight:30.75,StdArchHeight:25.13,ArchHeight95percentile:65.70,ArchHeight75percentile:40.50,ArchHeight50percentile:21.00,ArchHeight25percentile:11.25,ArchHeight5percentile:9.45,AvgGirth:11,StdGirth:221.20,Girth95percentile:80.96,Girth75percentile:332.63,Girth50percentile:256.62,Girth25percentile:194.37,Girth5percentile:158.94},
+    {Gender:"Female", USSize:2,  AvgLength:249.00, StdLength:5.30, Length95percentile:254.38,Length75percentile:253.62,Length50percentile:250.01,Length25percentile:245.39,Length5percentile:242.20,Avgwidth:109.84,StdWidth:2.43,Width95percentile:112.86,Width75percentile:111.60,Width50percentile:109.55,Width25percentile:107.78,Width5percentile:107.21,AvgInstep:73.02,StdInstep:21.41,Instep95percentile:99.34,Instep75percentile:88.70,Instep50percentile:71.29,Instep25percentile:55.60,Instep5percentile:49.12,AvgArchHeight:30.75,StdArchHeight:25.13,ArchHeight95percentile:65.70,ArchHeight75percentile:40.50,ArchHeight50percentile:21.00,ArchHeight25percentile:11.25,ArchHeight5percentile:9.45,AvgGirth:11,StdGirth:221.20,Girth95percentile:80.96,Girth75percentile:332.63,Girth50percentile:256.62,Girth25percentile:194.37,Girth5percentile:158.94},
+    {Gender:"Female", USSize:2,  AvgLength:249.00, StdLength:5.30, Length95percentile:254.38,Length75percentile:253.62,Length50percentile:250.01,Length25percentile:245.39,Length5percentile:242.20,Avgwidth:109.84,StdWidth:2.43,Width95percentile:112.86,Width75percentile:111.60,Width50percentile:109.55,Width25percentile:107.78,Width5percentile:107.21,AvgInstep:73.02,StdInstep:21.41,Instep95percentile:99.34,Instep75percentile:88.70,Instep50percentile:71.29,Instep25percentile:55.60,Instep5percentile:49.12,AvgArchHeight:30.75,StdArchHeight:25.13,ArchHeight95percentile:65.70,ArchHeight75percentile:40.50,ArchHeight50percentile:21.00,ArchHeight25percentile:11.25,ArchHeight5percentile:9.45,AvgGirth:11,StdGirth:221.20,Girth95percentile:80.96,Girth75percentile:332.63,Girth50percentile:256.62,Girth25percentile:194.37,Girth5percentile:158.94},
+    {Gender:"Female", USSize:2,  AvgLength:249.00, StdLength:5.30, Length95percentile:254.38,Length75percentile:253.62,Length50percentile:250.01,Length25percentile:245.39,Length5percentile:242.20,Avgwidth:109.84,StdWidth:2.43,Width95percentile:112.86,Width75percentile:111.60,Width50percentile:109.55,Width25percentile:107.78,Width5percentile:107.21,AvgInstep:73.02,StdInstep:21.41,Instep95percentile:99.34,Instep75percentile:88.70,Instep50percentile:71.29,Instep25percentile:55.60,Instep5percentile:49.12,AvgArchHeight:30.75,StdArchHeight:25.13,ArchHeight95percentile:65.70,ArchHeight75percentile:40.50,ArchHeight50percentile:21.00,ArchHeight25percentile:11.25,ArchHeight5percentile:9.45,AvgGirth:11,StdGirth:221.20,Girth95percentile:80.96,Girth75percentile:332.63,Girth50percentile:256.62,Girth25percentile:194.37,Girth5percentile:158.94},
+    {Gender:"Female", USSize:2,  AvgLength:249.00, StdLength:5.30, Length95percentile:254.38,Length75percentile:253.62,Length50percentile:250.01,Length25percentile:245.39,Length5percentile:242.20,Avgwidth:109.84,StdWidth:2.43,Width95percentile:112.86,Width75percentile:111.60,Width50percentile:109.55,Width25percentile:107.78,Width5percentile:107.21,AvgInstep:73.02,StdInstep:21.41,Instep95percentile:99.34,Instep75percentile:88.70,Instep50percentile:71.29,Instep25percentile:55.60,Instep5percentile:49.12,AvgArchHeight:30.75,StdArchHeight:25.13,ArchHeight95percentile:65.70,ArchHeight75percentile:40.50,ArchHeight50percentile:21.00,ArchHeight25percentile:11.25,ArchHeight5percentile:9.45,AvgGirth:11,StdGirth:221.20,Girth95percentile:80.96,Girth75percentile:332.63,Girth50percentile:256.62,Girth25percentile:194.37,Girth5percentile:158.94},
+    {Gender:"Female", USSize:2,  AvgLength:249.00, StdLength:5.30, Length95percentile:254.38,Length75percentile:253.62,Length50percentile:250.01,Length25percentile:245.39,Length5percentile:242.20,Avgwidth:109.84,StdWidth:2.43,Width95percentile:112.86,Width75percentile:111.60,Width50percentile:109.55,Width25percentile:107.78,Width5percentile:107.21,AvgInstep:73.02,StdInstep:21.41,Instep95percentile:99.34,Instep75percentile:88.70,Instep50percentile:71.29,Instep25percentile:55.60,Instep5percentile:49.12,AvgArchHeight:30.75,StdArchHeight:25.13,ArchHeight95percentile:65.70,ArchHeight75percentile:40.50,ArchHeight50percentile:21.00,ArchHeight25percentile:11.25,ArchHeight5percentile:9.45,AvgGirth:11,StdGirth:221.20,Girth95percentile:80.96,Girth75percentile:332.63,Girth50percentile:256.62,Girth25percentile:194.37,Girth5percentile:158.94},
+   
   ];

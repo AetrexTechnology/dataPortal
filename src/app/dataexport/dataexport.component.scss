@@ -13,19 +13,48 @@ h3 {
     background-color: #f1f1f1;
     width: fit-content;
   }
-  .mat-table {
-    overflow: auto;
-    max-height: 500px;
-    // text-align: left;
-    // /* margin: 20px; */
-    margin-left: -11px;
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    .mat-table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        display: table;
+        border-collapse: collapse;
+        margin: 0px;
+    }
+    .mat-row,
+    .mat-header-row {
+        display: table-row;
+    }
+    .mat-cell,
+    .mat-header-cell {
+        word-wrap: initial;
+        display: table-cell;
+        padding: 0px 5px;
+        line-break: unset;
+        width: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: middle;
+    }
   }
-  .mat-header-row {
-    top: 0;
-    position: sticky;
-    z-index: 1;
-    background-color: inherit;
-}
+
+//   .mat-table {
+//     overflow: scroll;
+//     max-height: 500px;
+//     // text-align: left;
+//     // /* margin: 20px; */
+//     // margin-left: -11px;
+//   }
+//   .mat-header-row {
+//     top: 0;
+//     position: sticky;
+//     z-index: 1;
+//     background-color: inherit;
+// }
   .flex-container > div {
     color: white;
     // margin: 10px;

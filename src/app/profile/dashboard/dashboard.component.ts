@@ -16,12 +16,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.navigate(['/dashboard']);
-    if (!localStorage.getItem('foo')) { 
-      localStorage.setItem('foo', 'no reload') 
-      location.reload() 
-    } else {
-      localStorage.removeItem('foo') 
-    }
+     if (!localStorage.getItem('foo')) { 
+    localStorage.setItem('foo', 'no reload') 
+    location.reload() 
+  } else {
+    localStorage.removeItem('foo') 
+  }
     // this.subscription =  this.shared.subj$.subscribe(val=>{
     //   alert(val);
     //   this.reload = val;
