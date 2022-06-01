@@ -11,6 +11,7 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
 
   export class DataexportComponent implements OnInit {
     isDisabled=true;
+    public formGroup: FormGroup;
     showTable = false;
     dropdownListGender = [];
     dropdownListCountry=[];
@@ -94,7 +95,7 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
       ];
       this.dropdownListStatistics = [
         { item_id: 1, item_text: 'Average' },
-        { item_id: 2, item_text: 'Standard Deviation' },
+        { item_id: 2, item_text: 'Std Deviation' },
         { item_id: 3, item_text: '10th Percentile' },
         { item_id: 4, item_text: '25th Percentile' },
         { item_id: 5, item_text: '50th Percentile' },
@@ -107,11 +108,16 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
         singleSelection: false,
         idField: 'item_id',
         textField: 'item_text',
-        enableCheckAll:false,
-      
-        itemsShowLimit: 3,
+        enableCheckAll:true,
+        itemsShowLimit: 2,
         allowSearchFilter: true
       };
+      this.setForm();
+    }
+    public setForm() {
+      this.formGroup = new FormGroup({
+        name: new FormControl(this.dropdownListStatistics, Validators.required),
+      });
     }
     onItemSelect(item: any) {
       this.selectedItems.push(item);

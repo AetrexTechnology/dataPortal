@@ -4,7 +4,7 @@
 
 mat-sidenav {
     margin: 16px;
-    width: 175px;
+    width: 200px;
     border-right: none;
     background: rgb(217, 234, 239);
     color: white;
@@ -21,7 +21,7 @@ mat-sidenav a:link { text-decoration: none; }
     overflow: scroll;
     border-radius: 10px;
     margin: 16px;
-    margin-left: 32px;
+    margin-left: 20px;
 
     display: flex;
     justify-content: center;
