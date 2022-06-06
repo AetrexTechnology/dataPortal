@@ -1,0 +1,55 @@
+:host {
+    display: block;
+    // padding: 2%;
+    aspect-ratio: 4 / 3;
+    height: 258px;
+    width: 380px;
+
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // background: transparent;
+    // overflow: hidden;
+    // background: #F1F1F1 0% 0% no-repeat padding-box;
+    // margin-bottom: 30px;
+    // border: 3px solid #FFFFFF;
+    // border-radius: 12px;
+     // position: absolute;
+}
+
+@media only screen and (max-width: 599px)  {
+    :host {
+        height: 150px;
+        width: 200px;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 959px) { 
+    :host {
+        height: 180px;
+        width: 240px;
+    }
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1279px) { 
+    :host {
+        height: 210px;
+        width: 280px;
+    }
+}
+@media only screen and (min-width: 1280px) { 
+    :host {
+        height: 400px;
+        width: 450px;
+    }
+}
+// #threeDProgressBarOuter {
+//     width: 100%;
+//     height: 2px;
+//     position: relative;
+//     top: calc(50% - 2px);
+// }
+
+// .progress-bar {
+//     position: absolute;
+// }

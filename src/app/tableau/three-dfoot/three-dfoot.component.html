@@ -1,24 +1,30 @@
-<div class='tableauPlaceholder' style='width: 1000px; height: 827px;'>
-    <div class="flex-container">
-        <div style="flex-grow:3;">
+<div class='tableauPlaceholder' style='width: 1000px;height: 547px;'>
+    <div class="flex-container" style="width: 50%;">
+        <div style="flex-grow:4;">
           <mat-label style="color: black; font-size: medium;">Country</mat-label>
             <mat-select placeholder="select Country" [(ngModel)]="selectedValue1" name="item" style="margin-bottom:10px;">
                 <mat-option *ngFor="let item of items" [value]="item.value">{{item.value}}
                 </mat-option>
             </mat-select>
+        </div>
+        <div style="flex-grow:4;">
             <mat-label style="color: black;font-size: medium;">Gender</mat-label>
             <mat-select placeholder="Select Gender" [(ngModel)]="selectedValue2" name="item2" style="margin-bottom:10px;">
                 <mat-option *ngFor="let item of items2" [value]="item.value">{{item.value}}
                 </mat-option>
             </mat-select>
+        </div>
+        <div style="flex-grow:4;">
             <mat-label style="color: black;font-size: medium;">Size</mat-label>
             <mat-select placeholder="Select size" [(ngModel)]="selectedValue3" name="item3" style="margin-bottom:10px;">
                 <mat-option *ngFor="let item of items3" [value]="item.value">{{item.value}}
                 </mat-option>
             </mat-select>
         </div>
-        <div style="flex-grow: 10;">
-          <img src="../../../assets/images/foot2.PNG"  width="600" height="600">
-      </div>
-      </div>
-</div>
+    </div>
+      <div class="flex-container" >
+        <div class="modal-feet" style="width: 100%;">
+            <app-threedfeetmodule lfoot="https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/left_foot.obj" rfoot="https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/right_foot.obj"></app-threedfeetmodule>
+        </div>
+  </div>
+</div> 

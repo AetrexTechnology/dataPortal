@@ -26,6 +26,8 @@ import { MatSelectModule } from  '@angular/material/select';
 import { SharedServiceService } from '../app/shared-service.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { DataexportComponent } from './dataexport/dataexport.component';
+import { ThreedfeetmoduleModule } from './threedfeetmodule/threedfeetmodule.module';
+import { AppService } from './app.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,9 +54,10 @@ import { DataexportComponent } from './dataexport/dataexport.component';
     MatDividerModule,
     MatTableModule,
     MatSelectModule,
+    ThreedfeetmoduleModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
-  providers: [ApiService, CookieService,SharedServiceService, {
+  providers: [ApiService, CookieService,SharedServiceService,AppService, {
             provide: HTTP_INTERCEPTORS,
             useClass: ApiInterceptor,
             multi: true
