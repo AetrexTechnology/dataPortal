@@ -1,0 +1,25 @@
+.emptyLine{
+    height: 2px;
+    width: 50%;
+    margin-left: 25%;
+}
+.card{
+    border-radius: 40px;
+    min-height: 300px;
+    max-width: 13rem;
+    text-align: center;
+    background-color: rgb(111 166 203) !important;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #e2463c;
+   border: none;
+}
+.mr-5{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.card-text{
+    font-size: large;
+    padding: 13px;
+}

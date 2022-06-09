@@ -29,9 +29,10 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss","src/assets/bootstrap.min.css"
             ],
-            "scripts": ["src/assets/tableau.js","src/assets/fitgenius_widget.js"]
+            "scripts": ["src/assets/tableau.js","src/assets/fitgenius_widget.js",
+            	"src/assets/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
@@ -98,7 +99,8 @@
               "https://fitgenius-widgets.aetrextechnology.com/assets/api/fitgenius_widget.css"
               
             ],
-            "scripts": ["src/assets/tableau.js","src/assets/fitgenius_widget.js"]
+            "scripts": ["src/assets/tableau.js","src/assets/fitgenius_widget.js",
+            	"https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"]
           }
         },
         "lint": {

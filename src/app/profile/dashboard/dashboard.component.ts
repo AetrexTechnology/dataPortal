@@ -34,4 +34,5 @@ export class DashboardComponent implements OnInit {
   logout(){
     this.apiService.logout();
   }
+  
 }
