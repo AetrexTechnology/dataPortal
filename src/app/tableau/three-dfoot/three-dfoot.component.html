@@ -1,5 +1,5 @@
 <div class='tableauPlaceholder' style='width: 1000px;height: 547px;'>
-    <div class="flex-container" style="width: 50%;">
+    <div class="flex-container" style="width: 50%;float: left;">
         <div style="flex-grow:4;">
           <mat-label style="color: black; font-size: medium;">Country</mat-label>
             <mat-select placeholder="select Country" [(ngModel)]="selectedValue1" name="item" style="margin-bottom:10px;">
@@ -22,9 +22,17 @@
             </mat-select>
         </div>
     </div>
-      <div class="flex-container" >
-        <div class="modal-feet" style="width: 100%;">
+    <div class="flex-container" style="flex-direction: row-reverse;">
+        <div>
+            <button type="button" class="btn mat-raised-button">Fetch 3D Foot</button>
+        </div>
+        <div>
+            <button type="button" class="btn mat-raised-button">Download STL</button>
+        </div>
+    </div>
+    <div class=""style="margin-top:40px" >
+        <div class="modal-feet">
             <app-threedfeetmodule lfoot="https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/left_foot.obj" rfoot="https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/right_foot.obj"></app-threedfeetmodule>
         </div>
-  </div>
+    </div>
 </div> 

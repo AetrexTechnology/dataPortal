@@ -26,11 +26,61 @@ export class ThreeDfootComponent implements OnInit {
     value : "United States",
     viewValue : "Country-United States"
   },{
-    value : "India",
-    viewValue : "country-India"
+    value : "Canada",
+    viewValue : "country-Canada"
   },{
-    value : "Korea",
-    viewValue : "country-Korea"
+    value : "Mexico",
+    viewValue : "country-Mexico"
+  },
+  {
+    value : "Puerto Rico",
+    viewValue : "Country-Puerto-Rico"
+  },{
+    value : "Brazil",
+    viewValue : "country-Brazil"
+  },{
+    value : "Germany",
+    viewValue : "country-Germany"
+  },
+  {
+    value : "United Kingdom",
+    viewValue : "Country-United-Kingdom"
+  },{
+    value : "Netherlands",
+    viewValue : "country-Netherlands"
+  },{
+    value : "Denmark",
+    viewValue : "country-Denmark"
+  },
+  {
+    value : "Spain",
+    viewValue : "Country-Spain"
+  },{
+    value : "Israel",
+    viewValue : "country-Israel"
+  },{
+    value : "United Arab Emirates",
+    viewValue : "country-United-Arab-Emirates"
+  },
+  {
+    value : "Thailand",
+    viewValue : "Country-Thailand"
+  },{
+    value : "Indonesia",
+    viewValue : "country-Indonesia"
+  },{
+    value : "China",
+    viewValue : "country-China"
+  },
+  {
+    value : "South Korea",
+    viewValue : "Country-South-Korea"
+  },{
+    value : "Japan",
+    viewValue : "country-Japan"
+  },{
+    value : "Russia",
+    viewValue : "country-Russia"
   }];
 
   items2 = [{
@@ -42,12 +92,57 @@ export class ThreeDfootComponent implements OnInit {
   }];
 
   items3 = [{
+    value : "2",
+    viewValue : "size-10"
+  },{
+    value : "2.5",
+    viewValue : "size-10"
+  },{
+    value : "3",
+    viewValue : "size-10"
+  },{
+    value : "3.5",
+    viewValue : "size-10"
+  },{
+    value : "4",
+    viewValue : "size-10"
+  },{
+    value : "4.5",
+    viewValue : "size-10"
+  },{
+    value : "5",
+    viewValue : "size-10"
+  },{
+    value : "5.5",
+    viewValue : "size-10"
+  },{
+    value : "6",
+    viewValue : "size-10"
+  },{
+    value : "6.5",
+    viewValue : "size-10"
+  },{
     value : "7",
     viewValue : "size-7"
   },{
-    value : "8",
+    value : "7.5",
     viewValue : "size-8"
   },{
+    value : "8",
+    viewValue : "size-10"
+  },
+  {
+    value : "8.5",
+    viewValue : "size-10"
+  },
+  {
+    value : "9",
+    viewValue : "size-10"
+  },{
+    value : "9.5",
+    viewValue : "size-10"
+  },
+  {
     value : "10",
     viewValue : "size-10"
   }];
