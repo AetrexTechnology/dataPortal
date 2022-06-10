@@ -18,12 +18,12 @@
         </div>
     </div>
     <div style="flex-grow: 1">
-        <label style="color: black;"><p style="font-size: large;">County</p></label>
+        <label style="color: black;"><p style="font-size: large;">Country</p></label>
         <div *ngIf="dropdownListCountry" class="container">
             <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 <ng-multiselect-dropdown
                 class="multiselect"
-                [placeholder]="'Select County'"
+                [placeholder]="'Select Country'"
                 [settings]="dropdownSettings"
                 [data]="dropdownListCountry"
                 [(ngModel)]="selectedItems"

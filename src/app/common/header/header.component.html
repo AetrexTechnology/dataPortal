@@ -5,6 +5,7 @@
         </span>
         <span style="margin-left:29%;font-size: larger;">Albert DataFit Portal</span>
         <span class="example-spacer"></span>
+        <a  class="example-icon" (click)="openDialog()" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;margin: 16px ">Measurement Definitions</a>
         <a *ngIf="!(isLoggedIn | async)" class="example-icon" [routerLink]="['login']" routerLinkActive="active-link" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;">Login</a>
         <!-- <a class="example-icon"  *ngIf="!(isLoggedIn | async)" mat-raised-button color="warn" routerLinkActive="list-item-active" [routerLink]="['signup']">Signup</a> -->
         <a class="example-icon"  *ngIf="(isLoggedIn | async)" mat-raised-button color="primary" routerLinkActive="list-item-active" style="background-color:rgb(111, 166, 203);color: #131212d9;" (click)="logout()">Logout</a>

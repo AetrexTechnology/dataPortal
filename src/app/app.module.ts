@@ -27,7 +27,10 @@ import { SharedServiceService } from '../app/shared-service.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { DataexportComponent } from './dataexport/dataexport.component';
 import { ThreedfeetmoduleModule } from './threedfeetmodule/threedfeetmodule.module';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import { AppService } from './app.service';
+import { DialogComponent } from './dialog/dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import { AppService } from './app.service';
     FooterComponent,
     TableauComponent,
     ThreeDfootComponent,
-    DataexportComponent
+    DataexportComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,7 @@ import { AppService } from './app.service';
     MatTableModule,
     MatSelectModule,
     ThreedfeetmoduleModule,
+    MatDialogModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [ApiService, CookieService,SharedServiceService,AppService, {
