@@ -91,12 +91,9 @@
     
     </div>
   </div>
-  <!-- <div class="fetchData">
-  </div> -->
-
 <div class="table" style="margin:0;width: 1025px;">
     <div class="table-responsive">
-        <div class="example-header" style="padding: 20px;padding-left: 15px;">
+        <div class="example-header"  style="padding: 20px;padding-left: 15px;">
             <button [disabled]="isDisabled"(click)="onsubmit()" mat-raised-button mat-button color="primary" width="250px"style="background-color: #6fa6cb;
             color: black;">Fetch Data</button>
         </div>
@@ -272,12 +269,12 @@
         </mat-table>
       </div>
 </div>
-
-</div>
-<div style="text-align:center;padding: 5px;margin-right:60px;">
+<div *ngIf="showTable" style="text-align:center;padding: 5px;margin-right:60px;">
   <button (click)="openDialog()" class="MDbutton" > 
       Measurement Definitions</button>
   <!-- <a  class="example-icon" (click)="openDialog()" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;margin: 16px ">Measurement Definitions</a> -->
 </div>
+</div>
+
 
 

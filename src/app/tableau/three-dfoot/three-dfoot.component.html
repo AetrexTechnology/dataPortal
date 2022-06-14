@@ -22,16 +22,15 @@
             </mat-select>
         </div>
     </div>
-    <div class="flex-container" style="flex-direction: row-reverse;">
-   
+    <div class="flex-container">
         <div>
-            <button type="button" class="btn mat-raised-button">Download STL</button>
+            <button type="button"(click)="launch3dfoot()" class="btn mat-raised-button"style="margin: 10px;">Fetch 3D Foot</button>
         </div>
         <div>
-            <button type="button"(click)="launch3dfoot()" class="btn mat-raised-button">Fetch 3D Foot</button>
+            <button type="button" class="btn mat-raised-button"style="margin: 10px;">Download STL</button>
         </div>
     </div>
-    <div *ngIf="load3dFoot" style="margin-top:40px" >
+    <div *ngIf="load3dFoot" style="margin-top:20px" >
         <div class="modal-feet">
             <app-threedfeetmodule lfoot="https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/left_foot.obj" rfoot="https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/right_foot.obj"></app-threedfeetmodule>
         </div>
