@@ -1,13 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {MatTableModule } from '@angular/material/table'
 import { AppService } from 'src/app/app.service';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 
 @Component({
   selector: 'app-thrre-dfoot',
   templateUrl: './three-dfoot.component.html',
   styleUrls: ['./three-dfoot.component.scss']
 })
+
 export class ThreeDfootComponent implements OnInit {
+  load3dFoot:boolean = false;
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   selectedValue1: any;
@@ -129,28 +133,100 @@ export class ThreeDfootComponent implements OnInit {
     viewValue : "size-8"
   },{
     value : "8",
-    viewValue : "size-10"
+    viewValue : "size-8"
   },
   {
     value : "8.5",
-    viewValue : "size-10"
+    viewValue : "size-8.5"
   },
   {
     value : "9",
-    viewValue : "size-10"
+    viewValue : "size-9"
   },{
     value : "9.5",
-    viewValue : "size-10"
+    viewValue : "size-9.5"
   },
   {
     value : "10",
     viewValue : "size-10"
+  },
+  {
+    value : "10.5",
+    viewValue : "size-10.5"
+  },
+  {
+    value : "11",
+    viewValue : "size-11"
+  },
+  {
+    value : "11.5",
+    viewValue : "size-11.5"
+  },
+  {
+    value : "12",
+    viewValue : "size-12.5"
+  },
+  {
+    value : "12.5",
+    viewValue : "size-12.5"
+  },
+  {
+    value : "13",
+    viewValue : "size-13"
+  },
+  {
+    value : "13.5",
+    viewValue : "size-13.5"
+  },
+  {
+    value : "14",
+    viewValue : "size-14"
+  },
+  {
+    value : "14.5",
+    viewValue : "size-14.5"
+  },
+  {
+    value : "15",
+    viewValue : "size-15"
+  },
+  {
+    value : "15.5",
+    viewValue : "size-16.5"
+  },
+  {
+    value : "16",
+    viewValue : "size-16"
+  },
+  {
+    value : "16.5",
+    viewValue : "size-16.5"
+  },
+  {
+    value : "17",
+    viewValue : "size-16"
+  },
+  {
+    value : "17.5",
+    viewValue : "size-16.5"
+  },
+  {
+    value : "18",
+    viewValue : "size-16"
   }];
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-
+  launch3dfoot(){
+    this.load3dFoot= true;
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
 export interface Element {
 

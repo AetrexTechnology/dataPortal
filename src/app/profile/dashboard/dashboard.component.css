@@ -11,16 +11,17 @@
     background-color: rgba(147, 157, 166, 1) !important;
 }
 .card-title{
-font-size: small;
+font-size: medium   ;
 }
 .card-text{
 font-size: small;
 }
-.btn-primary {
+/* .btn-primary {
     color: #fff;
-    background-color: #e2463c;
+    background-color: #939da6;
    border: none;
-}
+   font-size: xx-small;
+} */
 .mr-5{
     margin-top: 5px;
     margin-bottom: 5px;

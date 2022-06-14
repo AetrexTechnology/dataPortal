@@ -1,11 +1,11 @@
 <mat-toolbar class="mat-toolbar mat-raised-button">
     <mat-toolbar-row>
-        <span style="width: 68px;"><img class="AppLogo" src="../../../assets/images/logo.png" alt="Aetrex logo" width="100%" height="auto"transform="rotate(-9deg)"></span>
-        <span style="width: 74px;margin-left:-24px"><img class="AppLogo" src="../../../assets/images/logotext.png" alt="Aetrex" width="100%" height="auto">
-        </span>
-        <span style="margin-left:29%;font-size: larger;">Albert DataFit Portal</span>
+        <span style="width: 20%;"><img class="AppLogo" src="../../../assets/images/cropped-foot-logo.png" alt="Aetrex logo" width="100%" height="auto"transform="rotate(-9deg)"></span>
+        <!-- <span style="width: 74px;margin-left:-24px"><img class="AppLogo" src="../../../assets/images/logotext.png" alt="Aetrex" width="100%" height="auto">
+        </span> -->
+        <span  class="header-text">Foot.com</span>
         <span class="example-spacer"></span>
-        <a  class="example-icon" (click)="openDialog()" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;margin: 16px ">Measurement Definitions</a>
+        <!-- <a  class="example-icon" (click)="openDialog()" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;margin: 16px ">Measurement Definitions</a> -->
         <a *ngIf="!(isLoggedIn | async)" class="example-icon" [routerLink]="['login']" routerLinkActive="active-link" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;">Login</a>
         <!-- <a class="example-icon"  *ngIf="!(isLoggedIn | async)" mat-raised-button color="warn" routerLinkActive="list-item-active" [routerLink]="['signup']">Signup</a> -->
         <a class="example-icon"  *ngIf="(isLoggedIn | async)" mat-raised-button color="primary" routerLinkActive="list-item-active" style="background-color:rgb(111, 166, 203);color: #131212d9;" (click)="logout()">Logout</a>

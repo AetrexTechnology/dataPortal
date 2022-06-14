@@ -8,6 +8,14 @@
   .mat-toolbar{
     background-color:rgb(217, 234, 239);
   }
+  .header-text{
+    margin-left: 23%;
+    font-size: xx-large;
+    color: #5e94b8;
+    font-family: Lato, sans-serif;
+    font-weight: bold;
+    margin-left:21%;
+  }
   /* .AppLogo{
     height: 68px;
     margin-top: 5px;

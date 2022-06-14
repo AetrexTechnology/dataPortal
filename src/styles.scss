@@ -24,3 +24,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
         -ms-overflow-style: none;
         scrollbar-width: none; /* Firefox */
       } }
+      .MDbutton {
+        display: inline-block;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-weight: 500;
+        color: rgb(0, 0, 0);
+        background-color:none;
+       border: none;
+       font-size: medium;
+      
+    }

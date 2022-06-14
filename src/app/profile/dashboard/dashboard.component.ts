@@ -4,6 +4,8 @@ import {TableauComponent} from "../../tableau/tableau.component"
 import { Subscription }   from 'rxjs';
 import { SharedServiceService } from '../../shared-service.service'
 import {Router, NavigationEnd,ActivatedRoute} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,7 +14,7 @@ import {Router, NavigationEnd,ActivatedRoute} from '@angular/router';
 export class DashboardComponent implements OnInit {
   subscription:Subscription;
   reload:any;
-  constructor(private apiService:ApiService,private router: Router,private shared:SharedServiceService,private activatedRoute: ActivatedRoute) { }
+  constructor(public dialog: MatDialog ,private apiService:ApiService,private router: Router,private shared:SharedServiceService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.router.navigate(['/dashboard']);
@@ -34,5 +36,10 @@ export class DashboardComponent implements OnInit {
   logout(){
     this.apiService.logout();
   }
-  
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

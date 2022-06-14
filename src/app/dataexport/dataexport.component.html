@@ -1,7 +1,7 @@
 <div style="margin:30px;margin-right:10px;height: 500px;"> 
 <div class="flex-container" style="width: 1050px;background-color: white;">
     <div style="flex-grow: 1">
-        <label style="color: black;"><p style="font-size: large;">Gender</p></label>
+        <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Gender</p></label>
         <div *ngIf="dropdownListGender" class="container">
             <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 <ng-multiselect-dropdown
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div style="flex-grow: 1">
-        <label style="color: black;"><p style="font-size: large;">Country</p></label>
+        <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Country</p></label>
         <div *ngIf="dropdownListCountry" class="container">
             <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 <ng-multiselect-dropdown
@@ -36,7 +36,7 @@
     
     </div>
     <div style="flex-grow: 1">
-        <label style="color: black;"><p style="font-size: large;">US-Size</p></label>
+        <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">US-Size</p></label>
         <div *ngIf="dropdownListUSSize" class="container">
             <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 <ng-multiselect-dropdown
@@ -54,7 +54,7 @@
     
     </div>
     <div style="flex-grow: 1">
-        <label style="color: black;"><p style="font-size: large;">Measurements</p></label>
+        <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Measurements</p></label>
         <div *ngIf="dropdownListMeasurements" class="container">
             <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 
@@ -72,7 +72,7 @@
         </div>
     </div>
     <div style="flex-grow: 1">
-        <label style="color: black;"><p style="font-size: large;">Statistics</p></label>
+        <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Statistics</p></label>
         <div *ngIf="dropdownListStatistics" class="container">
             <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 
@@ -96,7 +96,7 @@
 
 <div class="table" style="margin:0;width: 1025px;">
     <div class="table-responsive">
-        <div class="example-header" style="padding: 12px;padding-left: 0px;">
+        <div class="example-header" style="padding: 20px;padding-left: 15px;">
             <button [disabled]="isDisabled"(click)="onsubmit()" mat-raised-button mat-button color="primary" width="250px"style="background-color: #6fa6cb;
             color: black;">Fetch Data</button>
         </div>
@@ -272,6 +272,12 @@
         </mat-table>
       </div>
 </div>
+
+</div>
+<div style="text-align:center;padding: 5px;margin-right:60px;">
+  <button (click)="openDialog()" class="MDbutton" > 
+      Measurement Definitions</button>
+  <!-- <a  class="example-icon" (click)="openDialog()" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;margin: 16px ">Measurement Definitions</a> -->
 </div>
 
 

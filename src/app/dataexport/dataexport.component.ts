@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup ,Validators} from '@angular/forms';
 import { IDropdownSettings,} from 'ng-multiselect-dropdown';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 // import { TableData } from ../data.model;
 @Component({
   selector: 'app-dataexport',
@@ -36,7 +38,7 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
     //   {position: 5, name: Boron, weight: 10.811, symbol: B},
     // ];
 
-    constructor (){}
+    constructor (public dialog: MatDialog){}
     ngOnInit() {
       this.dropdownListGender = [
         { item_id: 1, item_text: 'Male' },
@@ -44,10 +46,23 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
       ];
       this.dropdownListCountry = [
         { item_id: 1, item_text: 'United States' },
-        { item_id: 2, item_text: 'India' },
-        { item_id: 3, item_text: 'Spain' },
-        { item_id: 4, item_text: 'Mexico' },
-        { item_id: 5, item_text: 'Canada' }
+        { item_id: 2, item_text: 'Canada' },
+        { item_id: 3, item_text: 'Mexico' },
+        { item_id: 4, item_text: 'Puerto Rico' },
+        { item_id: 5, item_text: 'Brazil' },
+        { item_id: 6, item_text: 'Germany' },
+        { item_id: 7, item_text: 'United Kingdom' },
+        { item_id: 8, item_text: 'Netherlands' },
+        { item_id: 9, item_text: 'Denmark' },
+        { item_id: 10, item_text: 'Spain' },
+        { item_id: 11, item_text: 'Israel' },
+        { item_id: 12, item_text: 'United Arab Emirates' },
+        { item_id: 13, item_text: 'Thailand' },
+        { item_id: 14, item_text: 'Indonesia' },
+        { item_id: 15, item_text: 'China' },
+        { item_id: 9, item_text: 'South Korea' },
+        { item_id: 10, item_text: 'Japan' },
+        { item_id: 11, item_text: 'Russia' }
       ];
       this.dropdownListUSSize = [
         { item_id: 1, item_text: '2' },
@@ -109,7 +124,7 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
         idField: 'item_id',
         textField: 'item_text',
         enableCheckAll:true,
-        itemsShowLimit: 2,
+        itemsShowLimit: 1,
         allowSearchFilter: true
       };
       this.setForm();
@@ -142,7 +157,12 @@ import { IDropdownSettings,} from 'ng-multiselect-dropdown';
         
       }
     }
-
+    openDialog() {
+      const dialogRef = this.dialog.open(DialogComponent);
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
     onsubmit(){
       if(this.selectedItems.length != 0){
         this.isDisabled=false;

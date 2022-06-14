@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { SharedServiceService } from '../shared-service.service'; 
 import { Subscription }   from 'rxjs';
-
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 @Component({
   selector: 'app-tableau',
   templateUrl: './tableau.component.html',
@@ -11,7 +12,7 @@ import { Subscription }   from 'rxjs';
 })
 export class TableauComponent implements  OnInit {
 reload:any;
-  constructor(public router: Router,private shared:SharedServiceService) {}
+  constructor(public dialog: MatDialog,public router: Router,private shared:SharedServiceService) {}
     subscription: Subscription;
   ngOnInit(): void {
     this.router.navigate(['/dashboard2']);
@@ -29,5 +30,11 @@ reload:any;
     //   }
     //   console.log(val);
     // })
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

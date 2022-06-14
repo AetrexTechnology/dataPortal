@@ -23,16 +23,23 @@
         </div>
     </div>
     <div class="flex-container" style="flex-direction: row-reverse;">
-        <div>
-            <button type="button" class="btn mat-raised-button">Fetch 3D Foot</button>
-        </div>
+   
         <div>
             <button type="button" class="btn mat-raised-button">Download STL</button>
         </div>
+        <div>
+            <button type="button"(click)="launch3dfoot()" class="btn mat-raised-button">Fetch 3D Foot</button>
+        </div>
     </div>
-    <div class=""style="margin-top:40px" >
+    <div *ngIf="load3dFoot" style="margin-top:40px" >
         <div class="modal-feet">
             <app-threedfeetmodule lfoot="https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/left_foot.obj" rfoot="https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/right_foot.obj"></app-threedfeetmodule>
         </div>
     </div>
+
 </div> 
+<div style="text-align:center;padding: 5px;">
+    <button (click)="openDialog()" class="MDbutton"style="margin-right:60px;" > 
+        Measurement Definitions</button>
+    <!-- <a  class="example-icon" (click)="openDialog()" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;margin: 16px ">Measurement Definitions</a> -->
+  </div>
