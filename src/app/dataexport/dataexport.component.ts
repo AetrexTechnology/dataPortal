@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup ,Validators} from '@angular/forms';
 import { IDropdownSettings,} from 'ng-multiselect-dropdown';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import {AppService} from '../../app/app.service';
 // import { TableData } from ../data.model;
 @Component({
   selector: 'app-dataexport',
@@ -38,8 +39,9 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
     //   {position: 5, name: Boron, weight: 10.811, symbol: B},
     // ];
 
-    constructor (public dialog: MatDialog){}
+    constructor (public dialog: MatDialog,public appService:AppService){}
     ngOnInit() {
+
       this.dropdownListGender = [
         { item_id: 1, item_text: 'Male' },
         { item_id: 2, item_text: 'Female' }

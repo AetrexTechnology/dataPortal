@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -12,8 +12,6 @@ import { CommonResponse } from "../common/common-response";
 export class ApiService {
   private endPoint:string = "https://reqres.in/api/";
   loginStatus = new BehaviorSubject<boolean>(this.hasToken());
-
-
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router ) { 
 
   }
@@ -68,6 +66,27 @@ export class ApiService {
     return throwError(
       'Something bad happened; please try again later.');
   };
+    
+  getsummarystatus(): Observable<any>{
+    // let headers: HttpHeaders = new HttpHeaders();
+    // headers = headers.append('Accept', 'application/json');
+    // headers = headers.append('zumo-api-version', '2.0.0');
+    return this.http.get('http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/summarystats');
+}
+    // get3dfoot(){
+    //   let formData
+    //   "region":"Mexico",
+    //   "gender":"Male",
+    //   "shoe_size":"10"
+    //   return this.http.get('http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/average3dfoot');
+    // }
+    public get3dfoot(): Observable<any>{
+      const frmData = new FormData();
+      frmData.append("region","Mexico");
+      frmData.append(  "gender","Male",);
+      frmData.append( "shoe_size","10");
+      return this.http.post<any>(`http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/average3dfoot`,frmData)
+  }
 
   logout(){
     this.loginStatus.next(false);

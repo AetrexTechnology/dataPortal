@@ -14,6 +14,76 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
 export class DashboardComponent implements OnInit {
   subscription:Subscription;
   reload:any;
+  data= {
+    "AnkleGirth": {
+        "Female": 24.5936,
+        "Male": 26.8557
+    },
+    "ArchHeight": {
+        "Female": 1.96987,
+        "Male": 2.14442
+    },
+    "BallGirth": {
+        "Female": 22.427,
+        "Male": 24.8075
+    },
+    "BallHeight": {
+        "Female": 4.29078,
+        "Male": 4.7201
+    },
+    "BallWidth": {
+        "Female": 9.06376,
+        "Male": 10.0011
+    },
+    "DorsalHeight": {
+        "Female": 6.25621,
+        "Male": 6.98525
+    },
+    "Girth": {
+        "Female": 23.2937,
+        "Male": 26.16
+    },
+    "HeelWidth": {
+        "Female": 6.39459,
+        "Male": 7.0136
+    },
+    "InstepWidth": {
+        "Female": 8.29558,
+        "Male": 9.32744
+    },
+    "Length": {
+        "Female": 24.2915,
+        "Male": 26.8672
+    },
+    "LengthToFifthMetHead": {
+        "Female": 15.2855,
+        "Male": 16.9114
+    },
+    "LengthToFirstMetHead": {
+        "Female": 17.4691,
+        "Male": 19.3273
+    },
+    "LongHeelGirth": {
+        "Female": 31.9515,
+        "Male": 35.5106
+    },
+    "MaxToeHeight": {
+        "Female": 3.03087,
+        "Male": 3.36414
+    },
+    "ShortHeelGirth": {
+        "Female": 30.7264,
+        "Male": 34.1059
+    },
+    "US Size": {
+        "Female": 8.5,
+        "Male": 2121.5
+    },
+    "Width": {
+        "Female": 9.3363,
+        "Male": 10.3037
+    }
+}
   constructor(public dialog: MatDialog ,private apiService:ApiService,private router: Router,private shared:SharedServiceService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -24,6 +94,11 @@ export class DashboardComponent implements OnInit {
   } else {
     localStorage.removeItem('foo') 
   }
+  this.apiService.get3dfoot().subscribe(data=>{
+    if (data) {
+      console.log(data);
+         }
+  })
     // this.subscription =  this.shared.subj$.subscribe(val=>{
     //   alert(val);
     //   this.reload = val;
