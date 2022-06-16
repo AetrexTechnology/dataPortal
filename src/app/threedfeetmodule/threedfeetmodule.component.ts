@@ -9,9 +9,9 @@ import { ThreeDFeetService } from './threedfeet/three-d-feet.service';
   styleUrls: ['./threedfeetmodule.component.scss']
 })
 export class ThreedfeetmoduleComponent implements OnInit {
-user:any;
- lfoot:any;
- rfoot:any;
+  @Input() user:any;
+ @Input() lfoot:any;
+ @Input() rfoot:any;
 
   isLoaded = false;
 

@@ -30,8 +30,8 @@ export class FeetRendererComponent extends DestroyableBase implements AfterViewI
     @Input() threeDPosition = 'Init';
     @Input() passportMeasurements = []
 
-    @Input() lfoot;
-    @Input() rfoot;
+    @Input() lfoot:any;
+    @Input() rfoot:any;
 
     /**
      * Observable with the value of loading foot.Needed to display the loading indicator.
@@ -124,13 +124,10 @@ export class FeetRendererComponent extends DestroyableBase implements AfterViewI
             if(this.rfoot) {
                 this.footUrls.push(this.rfoot);
             }
-
-
-
         if(this.footUrls.length === 0) {
             this.footUrls= [
-                'https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/left_foot.obj',
-                'https://s3.amazonaws.com/aetrex-scanneros-scans/QA/7b8a15af330a274b1629363f358f52e9a24904f03117523bdd4295f856e086c9/CurrentTest/3DModel/right_foot.obj'
+                'https://s3.amazonaws.com/aetrex-scanneros-scans/PROD/779fa3cc0dfc27a088539ece60d1166a518a27088c6ed3781a6ee5029e07d3e4/CurrentTest/3DModel/left_foot.obj',
+                'https://s3.amazonaws.com/aetrex-scanneros-scans/PROD/779fa3cc0dfc27a088539ece60d1166a518a27088c6ed3781a6ee5029e07d3e4/CurrentTest/3DModel/right_foot.obj'
             ]
         }
         console.log('feet obj files are read from iframe attrbutes', this.footUrls);

@@ -6,6 +6,7 @@
 .card{
     border-radius: 10px;
     max-height: 200px;
+    min-height: 142px;
     /* max-width: 13rem; */
     text-align: center;
     background-color: rgba(147, 157, 166, 1) !important;
@@ -13,9 +14,7 @@
 .card-title{
 font-size: medium   ;
 }
-.card-text{
-font-size: small;
-}
+
 /* .btn-primary {
     color: #fff;
     background-color: #939da6;
@@ -27,7 +26,7 @@ font-size: small;
     margin-bottom: 5px;
 }
 .card-text{
-    font-size: large;
+    font-size: small;
 }
 .carousel-indicators li{
         background-color: #5a6970;

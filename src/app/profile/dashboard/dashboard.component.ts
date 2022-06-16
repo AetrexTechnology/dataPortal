@@ -6,6 +6,7 @@ import { SharedServiceService } from '../../shared-service.service'
 import {Router, NavigationEnd,ActivatedRoute} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { Observable, throwError } from 'rxjs';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,7 +15,8 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
 export class DashboardComponent implements OnInit {
   subscription:Subscription;
   reload:any;
-  data= {
+  data:any;
+  staticdata = {
     "AnkleGirth": {
         "Female": 24.5936,
         "Male": 26.8557
@@ -94,10 +96,14 @@ export class DashboardComponent implements OnInit {
   } else {
     localStorage.removeItem('foo') 
   }
-  this.apiService.get3dfoot().subscribe(data=>{
+  this.apiService.getsummarystatus().subscribe(data=>{
     if (data) {
-      console.log(data);
+      this.data = data;
          }
+    else{
+      this.data = this.staticdata;
+      console.log('data not available')
+    }
   })
     // this.subscription =  this.shared.subj$.subscribe(val=>{
     //   alert(val);

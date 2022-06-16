@@ -67,25 +67,18 @@ export class ApiService {
       'Something bad happened; please try again later.');
   };
     
-  getsummarystatus(): Observable<any>{
-    // let headers: HttpHeaders = new HttpHeaders();
-    // headers = headers.append('Accept', 'application/json');
-    // headers = headers.append('zumo-api-version', '2.0.0');
-    return this.http.get('http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/summarystats');
-}
-    // get3dfoot(){
-    //   let formData
-    //   "region":"Mexico",
-    //   "gender":"Male",
-    //   "shoe_size":"10"
-    //   return this.http.get('http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/average3dfoot');
-    // }
-    public get3dfoot(): Observable<any>{
-      const frmData = new FormData();
-      frmData.append("region","Mexico");
-      frmData.append(  "gender","Male",);
-      frmData.append( "shoe_size","10");
-      return this.http.post<any>(`http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/average3dfoot`,frmData)
+  public getsummarystatus():Observable<HttpResponse<any>>{
+    return this.http.get<any>('http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/summarystats');
+    }
+    public get3dfoot(region:any,gender:any,shoe_size:any):Observable<HttpResponse<any>>{
+      const json = 
+      {
+        "region":region,
+        "gender":gender,
+        "shoe_size":shoe_size,
+
+      }
+      return this.http.post<any>(`http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/average3dfoot`,json)
   }
 
   logout(){

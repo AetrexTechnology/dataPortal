@@ -1,9 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {MatTableModule } from '@angular/material/table'
-import { AppService } from 'src/app/app.service';
+import { ApiService } from "../../auth/api.service";
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { FormControl, FormGroupDirective, FormBuilder ,FormGroup, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
+// export class MyErrorStateMatcher implements ErrorStateMatcher
+//   isErrorState(control: FormControl, form: FormGroupDirective | NgForm): boolean {
+//     throw new Error('Method not implemented.');
+//   }
 @Component({
   selector: 'app-thrre-dfoot',
   templateUrl: './three-dfoot.component.html',
@@ -25,7 +31,15 @@ export class ThreeDfootComponent implements OnInit {
   selectedFootData: any;
   selectedFoot = 'leftfoot';
   recommended_shoe_size:any;
-
+  fetch3dfootForm:FormGroup;
+  Country = '';
+  Gender = '';
+  Size: any= '';
+  scan_hash:string;
+  lfoot:string;
+  rfoot:string;
+  matcher = new ErrorStateMatcher();
+  
   items = [{
     value : "United States",
     viewValue : "Country-United States"
@@ -214,11 +228,47 @@ export class ThreeDfootComponent implements OnInit {
     value : "18",
     viewValue : "size-16"
   }];
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public formBuilder: FormBuilder, public apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.fetch3dfootForm = this.formBuilder.group({
+      items : ['', Validators.required],
+      items2 : ['', Validators.required],
+      items3: ['', Validators.required],
+    });
   }
-  launch3dfoot(){
+  onformSubmit(){
+    if(this.fetch3dfootForm.valid){
+      if(this.fetch3dfootForm.value){
+        if(this.fetch3dfootForm.value.items !== 'United States')
+        {
+          let region = this.fetch3dfootForm.value.items;
+          let gender = this.fetch3dfootForm.value.items2;
+          let shoe_size = this.fetch3dfootForm.value.items3;
+          this.apiService.get3dfoot(region,gender,shoe_size).subscribe(data=>{
+            if (data) {
+              this.scan_hash = data['matched_foot'].scan_hash;
+              this.launch3dfoot(this.scan_hash);
+              console.log("this is the output "+ this.scan_hash);
+                 }
+            else{
+              console.log('data not available')
+            }
+          })
+        }
+      }
+      console.log(this.fetch3dfootForm.value);
+    }
+    else{
+      console.log('error')
+    }
+  }
+  launch3dfoot(scan_hash:any){
+    let url = "https://s3.amazonaws.com/aetrex-scanneros-scans/PROD/"
+    let url2 = "/CurrentTest/3DModel/left_foot.obj"
+    let url3 = "/CurrentTest/3DModel/right_foot.obj"
+    this.lfoot = url + scan_hash +url2;
+    this.rfoot = url + scan_hash +url3;
     this.load3dFoot= true;
   }
   openDialog() {
