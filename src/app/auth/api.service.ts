@@ -68,7 +68,7 @@ export class ApiService {
   };
     
   public getsummarystatus():Observable<HttpResponse<any>>{
-    return this.http.get<any>('http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/summarystats');
+    return this.http.get<any>('https://dataportalapi.aetrextechnology.com/summarystats');
     }
     public get3dfoot(region:any,gender:any,shoe_size:any):Observable<HttpResponse<any>>{
       const json = 
@@ -78,7 +78,7 @@ export class ApiService {
         "shoe_size":shoe_size,
 
       }
-      return this.http.post<any>(`http://dataportalpyapi-qa.us-east-1.elasticbeanstalk.com/average3dfoot`,json)
+      return this.http.post<any>(`https://dataportalapi.aetrextechnology.com/average3dfoot`,json)
   }
 
   logout(){
