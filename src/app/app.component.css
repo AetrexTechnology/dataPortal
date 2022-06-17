@@ -17,13 +17,13 @@ mat-sidenav span{
 }
 mat-sidenav a:link { text-decoration: none; }
 .content {
-    height: auto;
+    height: 100%;
     overflow: scroll;
     border-radius: 10px;
     margin: 16px;
     margin-left: 20px;
-
-    display: flex;
+/* 
+    display: flex; */
     justify-content: center;
     align-items: center;
 
