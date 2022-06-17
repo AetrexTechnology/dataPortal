@@ -7,6 +7,7 @@ import {Router, NavigationEnd,ActivatedRoute} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { Observable, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,72 +19,72 @@ export class DashboardComponent implements OnInit {
   data:any;
   staticdata = {
     "AnkleGirth": {
-        "Female": 24.5936,
-        "Male": 26.8557
+        "Female": 24.59,
+        "Male": 26.85
     },
     "ArchHeight": {
-        "Female": 1.96987,
-        "Male": 2.14442
+        "Female": 1.96,
+        "Male": 2.14
     },
     "BallGirth": {
-        "Female": 22.427,
-        "Male": 24.8075
+        "Female": 22.4,
+        "Male": 24.80
     },
     "BallHeight": {
-        "Female": 4.29078,
-        "Male": 4.7201
+        "Female": 4.29,
+        "Male": 4.72
     },
     "BallWidth": {
-        "Female": 9.06376,
-        "Male": 10.0011
+        "Female": 9.06,
+        "Male": 10.00
     },
     "DorsalHeight": {
-        "Female": 6.25621,
-        "Male": 6.98525
+        "Female": 6.25,
+        "Male": 6.98
     },
     "Girth": {
-        "Female": 23.2937,
+        "Female": 23.29,
         "Male": 26.16
     },
     "HeelWidth": {
-        "Female": 6.39459,
-        "Male": 7.0136
+        "Female": 6.39,
+        "Male": 7.0
     },
     "InstepWidth": {
-        "Female": 8.29558,
-        "Male": 9.32744
+        "Female": 8.29,
+        "Male": 9.32
     },
     "Length": {
-        "Female": 24.2915,
-        "Male": 26.8672
+        "Female": 24.29,
+        "Male": 26.86
     },
     "LengthToFifthMetHead": {
-        "Female": 15.2855,
-        "Male": 16.9114
+        "Female": 15.28,
+        "Male": 16.91
     },
     "LengthToFirstMetHead": {
-        "Female": 17.4691,
-        "Male": 19.3273
+        "Female": 17.46,
+        "Male": 19.3
     },
     "LongHeelGirth": {
-        "Female": 31.9515,
-        "Male": 35.5106
+        "Female": 31.9,
+        "Male": 35.51
     },
     "MaxToeHeight": {
-        "Female": 3.03087,
-        "Male": 3.36414
+        "Female": 3.03,
+        "Male": 3.36
     },
     "ShortHeelGirth": {
-        "Female": 30.7264,
-        "Male": 34.1059
+        "Female": 30.72,
+        "Male": 34.10
     },
     "US Size": {
         "Female": 8.5,
-        "Male": 2121.5
+        "Male": 21.5
     },
     "Width": {
-        "Female": 9.3363,
-        "Male": 10.3037
+        "Female": 9.3,
+        "Male": 10.30
     }
 }
   constructor(public dialog: MatDialog ,private apiService:ApiService,private router: Router,private shared:SharedServiceService,private activatedRoute: ActivatedRoute) { }
@@ -104,7 +105,10 @@ export class DashboardComponent implements OnInit {
       this.data = this.staticdata;
       console.log('data not available')
     }
-  })
+  },(err:HttpErrorResponse)=>{
+      console.log("no data Available Hence showing static data")
+      this.data = this.staticdata;
+  });
     // this.subscription =  this.shared.subj$.subscribe(val=>{
     //   alert(val);
     //   this.reload = val;

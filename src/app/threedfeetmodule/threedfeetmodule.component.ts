@@ -1,23 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { ThreeDFeetService } from './threedfeet/three-d-feet.service';
-
-
+import { FeetRendererComponent } from '../../app/threedfeetmodule/feet-renderer/feet-renderer.component';
 @Component({
   selector: 'app-threedfeetmodule',
   templateUrl: './threedfeetmodule.component.html',
   styleUrls: ['./threedfeetmodule.component.scss']
 })
-export class ThreedfeetmoduleComponent implements OnInit {
+export class ThreedfeetmoduleComponent implements OnInit,OnChanges{
   @Input() user:any;
- @Input() lfoot:any;
- @Input() rfoot:any;
-
+  @Input() lfoot:any;
+  @Input() rfoot:any;
+  leftFoot:any;
+  rightFoot:any;
   isLoaded = false;
-
   public treeDPosition = 'Init';
   threeDPosition = "Length";
-  constructor(private threeDService: ThreeDFeetService, private appService: AppService) {
+  constructor(private threeDService: ThreeDFeetService, private appService: AppService ) {
 
     //handle drag/drop events
     this.threeDService.position.subscribe(pos => {
@@ -26,7 +25,9 @@ export class ThreedfeetmoduleComponent implements OnInit {
   }
 
   ngOnInit() {
-      // this.appService.getProfileLastScan(this.user).subscribe(data => {
+    this.leftFoot = this.lfoot;
+    this.rightFoot = this.rfoot;
+          // this.appService.getProfileLastScan(this.user).subscribe(data => {
       //   if (data['footdata']) {
       //     this.lfoot = data['footdata'].leftfoot.objurl;
       //     this.rfoot = data['footdata'].rightfoot.objurl;
@@ -34,4 +35,11 @@ export class ThreedfeetmoduleComponent implements OnInit {
       //   }
       // })
   }
+  ngOnChanges() {
+    this.leftFoot = this.lfoot;
+    this.rightFoot = this.rfoot;
+    /**********THIS FUNCTION WILL TRIGGER WHEN PARENT COMPONENT UPDATES 'someInput'**************/
+    //Write your code here
+    //  console.log(this.someInput);
+    }   
 }

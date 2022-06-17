@@ -40,11 +40,14 @@
         </div>
     </div>
     </form>
+   
     <div *ngIf="load3dFoot" style="margin-top:20px" >
         <div class="modal-feet">
             <app-threedfeetmodule [lfoot]="lfoot" [rfoot]="rfoot"></app-threedfeetmodule>
-        </div>
-        
+        </div>     
+    </div>
+    <div *ngIf ="!load3dFoot && onload "style="margin-top:20px">
+        <h3 style="color: black;">Sorry! No data Available please Select diffrent Parameters</h3>
     </div>
 
 </div> 

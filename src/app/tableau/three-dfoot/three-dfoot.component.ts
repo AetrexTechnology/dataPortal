@@ -5,6 +5,8 @@ import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { FormControl, FormGroupDirective, FormBuilder ,FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ThreeDFeetService } from 'src/app/threedfeetmodule/threedfeet/three-d-feet.service';
 
 // export class MyErrorStateMatcher implements ErrorStateMatcher
 //   isErrorState(control: FormControl, form: FormGroupDirective | NgForm): boolean {
@@ -18,6 +20,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 
 export class ThreeDfootComponent implements OnInit {
   load3dFoot:boolean = false;
+  onload:boolean = false;
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   selectedValue1: any;
@@ -39,6 +42,8 @@ export class ThreeDfootComponent implements OnInit {
   lfoot:string;
   rfoot:string;
   matcher = new ErrorStateMatcher();
+  public treeDPosition = 'Init';
+  threeDPosition = "Length";
   
   items = [{
     value : "United States",
@@ -228,7 +233,7 @@ export class ThreeDfootComponent implements OnInit {
     value : "18",
     viewValue : "size-16"
   }];
-  constructor(public dialog: MatDialog, public formBuilder: FormBuilder, public apiService: ApiService) { }
+  constructor(public dialog: MatDialog, public formBuilder: FormBuilder, public apiService: ApiService , public threeDFeetService:ThreeDFeetService) { }
 
   ngOnInit(): void {
     this.fetch3dfootForm = this.formBuilder.group({
@@ -254,10 +259,19 @@ export class ThreeDfootComponent implements OnInit {
             else{
               console.log('data not available')
             }
-          })
+          },(err:HttpErrorResponse)=>{
+            this.load3dFoot = false;
+            this.onload = true;
+            console.log("no data Available Hence showing static data")
+            // this.data = this.staticdata;
+        });
         }
-      }
-      console.log(this.fetch3dfootForm.value);
+      
+      else{
+        this.scan_hash = '779fa3cc0dfc27a088539ece60d1166a518a27088c6ed3781a6ee5029e07d3e4'
+        this.launch3dfoot(this.scan_hash);
+    }
+   }
     }
     else{
       console.log('error')
@@ -269,7 +283,10 @@ export class ThreeDfootComponent implements OnInit {
     let url3 = "/CurrentTest/3DModel/right_foot.obj"
     this.lfoot = url + scan_hash +url2;
     this.rfoot = url + scan_hash +url3;
+    this.threeDFeetService.setLeftFoot(this.lfoot);
+    this.threeDFeetService.setRightFoot(this.rfoot);
     this.load3dFoot= true;
+
   }
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent);
