@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { ThreeDFeetService } from './threedfeet/three-d-feet.service';
-import { FeetRendererComponent } from '../../app/threedfeetmodule/feet-renderer/feet-renderer.component';
 @Component({
   selector: 'app-threedfeetmodule',
   templateUrl: './threedfeetmodule.component.html',
@@ -36,8 +35,8 @@ export class ThreedfeetmoduleComponent implements OnInit,OnChanges{
       // })
   }
   ngOnChanges() {
-    this.leftFoot = this.lfoot;
-    this.rightFoot = this.rfoot;
+    this.lfoot = this.threeDService.getLeftFoot();
+    this.rfoot = this.threeDService.getRightFoot();
     /**********THIS FUNCTION WILL TRIGGER WHEN PARENT COMPONENT UPDATES 'someInput'**************/
     //Write your code here
     //  console.log(this.someInput);

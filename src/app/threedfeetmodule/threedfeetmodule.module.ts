@@ -5,7 +5,7 @@ import { ThreedfeetmoduleRoutingModule } from './threedfeetmodule-routing.module
 import { ThreedfeetmoduleComponent } from './threedfeetmodule.component';
 import { ThreeDFeetService } from './threedfeet/three-d-feet.service';
 import { FootService } from './threedfeet/foot.service';
-import { FeetRendererComponent } from './feet-renderer/feet-renderer.component';
+import { FeetRendererComponent } from '../threedfeetmodule/threedfeet/feet-renderer/feet-renderer.component';
 
 @NgModule({
   declarations: [
