@@ -1,6 +1,6 @@
-<div class='tableauPlaceholder' style='width: 1000px;height: 547px;'>
+<div class='tableauPlaceholder' style='min-width: 100%;min-height: 100%;margin: 30px;'>
     <form [formGroup]="fetch3dfootForm" (ngSubmit)="onformSubmit()">
-    <div class="flex-container" style="width: 65%;float: left;">
+    <div class="flex-container" style="width: 50%;float: left;">
 
          <div style="flex-grow:4;">
         <mat-form-field>
@@ -41,7 +41,7 @@
     </div>
     </form>
    
-    <div *ngIf="load3dFoot" style="margin-top:20px" >
+    <div *ngIf="load3dFoot" style="margin-top:20px;margin-left: -28px;" >
         <div class="modal-feet">
             <app-threedfeetmodule [lfoot]="lfoot" [rfoot]="rfoot"></app-threedfeetmodule>
         </div>     
