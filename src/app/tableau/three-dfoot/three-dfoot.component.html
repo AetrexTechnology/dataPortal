@@ -1,8 +1,8 @@
-<div class='tableauPlaceholder' style='min-width: 100%;min-height: 100%;margin: 30px;'>
+<div class='tableauPlaceholder' style='min-width: 100%;min-height: 100%;padding:10px;'>
     <form [formGroup]="fetch3dfootForm" (ngSubmit)="onformSubmit()">
-    <div class="flex-container" style="width: 50%;float: left;">
+    <div class="flex-container">
 
-         <div style="flex-grow:4;">
+         <div style="flex-grow:3;">
         <mat-form-field>
           <mat-label style="color: black; font-size: medium;">Country</mat-label>
             <mat-select formControlName="items" placeholder="select Country" [(ngModel)]="selectedValue1" name="item" style="margin-bottom:10px;">
@@ -11,7 +11,7 @@
             </mat-select>
         </mat-form-field>
         </div>
-        <div style="flex-grow:4;">
+        <div style="flex-grow:3;">
             <mat-form-field>
             <mat-label style="color: black;font-size: medium;">Gender</mat-label>
             <mat-select formControlName="items2" placeholder="Select Gender" [(ngModel)]="selectedValue2" name="item2" style="margin-bottom:10px;">
@@ -20,7 +20,7 @@
             </mat-select>
         </mat-form-field>
         </div>
-        <div style="flex-grow:4;">
+        <div style="flex-grow:3;">
             <mat-form-field>
             <mat-label style="color: black;font-size: medium;">Size</mat-label>
             <mat-select formControlName="items3" placeholder="Select size" [(ngModel)]="selectedValue3" name="item3" style="margin-bottom:10px;">
@@ -29,27 +29,33 @@
             </mat-select>
         </mat-form-field>
         </div>
+        <div style="flex-grow:3;">
+            <button type="button" (click)="onformSubmit()" class="btn mat-raised-button"style="margin: 10px;">Fetch 3D Foot</button>
+        </div>
+        <div style="flex-grow:3;">
+            <button type="button" class="btn mat-raised-button"style="margin: 10px;">Download STL</button>
+        </div>
     </div>
-
-    <div class="flex-container">
+    <!-- 
+    <div class="flex-container"style="width: 35%;float: left;">
         <div>
             <button type="button" (click)="onformSubmit()" class="btn mat-raised-button"style="margin: 10px;">Fetch 3D Foot</button>
         </div>
         <div>
             <button type="button" class="btn mat-raised-button"style="margin: 10px;">Download STL</button>
         </div>
-    </div>
+    </div> -->
     </form>
-   
-    <div *ngIf="load3dFoot" style="margin-top:20px;margin-left: -28px;" >
-        <div class="modal-feet">
-            <app-threedfeetmodule [lfoot]="lfoot" [rfoot]="rfoot"></app-threedfeetmodule>
-        </div>     
+    <div class="flex-container"style="padding-left: 27%;background-color: #f1f1f1;">
+        <div *ngIf="load3dFoot">
+            <div class="modal-feet">
+                <app-threedfeetmodule [lfoot]="lfoot" [rfoot]="rfoot"></app-threedfeetmodule>
+            </div>     
+        </div>
+        <div *ngIf ="!load3dFoot && onload "style="margin-top:20px">
+            <h3 style="color: black;">No data available for your selected parameters. Please try another combination.</h3>
+        </div>
     </div>
-    <div *ngIf ="!load3dFoot && onload "style="margin-top:20px">
-        <h3 style="color: black;">No data available for your selected parameters. Please try another combination.</h3>
-    </div>
-
 </div> 
 <div style="text-align:center;padding: 5px;">
     <button (click)="openDialog()" class="MDbutton"style="margin-right:60px;" > 
