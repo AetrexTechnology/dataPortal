@@ -15,10 +15,13 @@ mat-sidenav {
 mat-sidenav span{
     color: rgb(0, 0, 0);
 }
+/* mat-sidenav::-webkit-scrollbar{
+    display: none;
+  } */
 mat-sidenav a:link { text-decoration: none; }
 .content {
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
     border-radius: 10px;
     margin: 16px;
     margin-left: 20px;
@@ -34,6 +37,9 @@ mat-sidenav a:link { text-decoration: none; }
 mat-sidenav-container {
     height: calc(100vh - 65px);
 }
+/* mat-sidenav-container ::-webkit-scrollbar {
+   display: none;
+        } */
 .menu-button {
     width: 100%;
     display: flex;
@@ -69,10 +75,14 @@ mat-divider {
     margin-bottom: 16px;
     background-color: rgba(255, 255, 255, 0.5);
 }
-::-webkit-scrollbar {
-    display: none;
-  }
-  
+/* ::-webkit-scrollbar {
+        display: block;
+    width: 6px;
+    overflow: auto;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #cac8c8;
+  } */
   /* Hide scrollbar for IE, Edge add Firefox */
   .scrollbar-hidden {
     -ms-overflow-style: none;

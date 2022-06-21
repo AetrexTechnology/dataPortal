@@ -15,6 +15,7 @@ import {AppService} from '../../app/app.service';
   export class DataexportComponent implements OnInit {
     isDisabled=true;
     public formGroup: FormGroup;
+    public dataExportFilters:FormGroup;
     showTable = false;
     dropdownListGender = [];
     dropdownListCountry=[];
@@ -39,8 +40,15 @@ import {AppService} from '../../app/app.service';
     //   {position: 5, name: Boron, weight: 10.811, symbol: B},
     // ];
 
-    constructor (public dialog: MatDialog,public appService:AppService){}
+    constructor (public dialog: MatDialog,public appService:AppService, public formBuilder: FormBuilder,){}
     ngOnInit() {
+      this.dataExportFilters = this.formBuilder.group({
+        dropdownListGender : ['', Validators.required],
+        dropdownListCountry : ['', Validators.required],
+        dropdownListUSSize: ['', Validators.required],
+        dropdownListMeasurements : ['', Validators.required],
+        dropdownListStatistics : ['', Validators.required]
+      });
 
       this.dropdownListGender = [
         { item_id: 1, item_text: 'Male' },
@@ -165,6 +173,8 @@ import {AppService} from '../../app/app.service';
         console.log(`Dialog result: ${result}`);
       });
     }
+
+
     onsubmit(){
       if(this.selectedItems.length != 0){
         this.isDisabled=false;
@@ -2648,3 +2658,4 @@ import {AppService} from '../../app/app.service';
     Girth25percentile: 272.92,
     Girth5percentile: 156.33
   }]
+  

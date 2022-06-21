@@ -15,15 +15,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-::-webkit-scrollbar {
-        display: none;
-      }
+// ::-webkit-scrollbar {
+//   display: none;
+//       }
       
       /* Hide scrollbar for IE, Edge add Firefox */
       .scrollbar-hidden {
         -ms-overflow-style: none;
         scrollbar-width: none; /* Firefox */
-      } }
+      } } 
       .MDbutton {
         display: inline-block;
     line-height: 1.5;

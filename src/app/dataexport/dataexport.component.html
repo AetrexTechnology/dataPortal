@@ -1,9 +1,9 @@
-<div style="margin:30px;margin-right:10px;height: 500px;"> 
-<div class="flex-container" style="width: 1050px;background-color: white;">
+<div style="margin-right:10px;min-height:100%;padding: 10px;"> 
+  <form>
+<div class="flex-container" style="width: 100%;background-color: white;">
     <div style="flex-grow: 1">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Gender</p></label>
         <div *ngIf="dropdownListGender" class="container">
-            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 <ng-multiselect-dropdown
                 class="multiselect"
                 [placeholder]="'Select Gender'"
@@ -14,7 +14,6 @@
                 (onSelectAll)="onSelectAll($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
-          </form>
         </div>
     </div>
     <div style="flex-grow: 1">
@@ -33,12 +32,10 @@
               </ng-multiselect-dropdown>
           </form>
         </div>
-    
     </div>
     <div style="flex-grow: 1">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">US-Size</p></label>
         <div *ngIf="dropdownListUSSize" class="container">
-            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 <ng-multiselect-dropdown
                  class="multiselect"
                 [placeholder]="'Select US-Size'"
@@ -49,15 +46,12 @@
                 (onSelectAll)="onSelectAll($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
-          </form>
         </div>
     
     </div>
     <div style="flex-grow: 1">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Measurements</p></label>
-        <div *ngIf="dropdownListMeasurements" class="container">
-            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
-                
+        <div *ngIf="dropdownListMeasurements" class="container">        
                 <ng-multiselect-dropdown
                  class="multiselect"
                 [placeholder]="'Select Measurements'"
@@ -68,14 +62,11 @@
                 (onSelectAll)="onSelectAll($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
-          </form>
         </div>
     </div>
     <div style="flex-grow: 1">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Statistics</p></label>
-        <div *ngIf="dropdownListStatistics" class="container">
-            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
-                
+        <div *ngIf="dropdownListStatistics" class="container">                
                 <ng-multiselect-dropdown
                  class="multiselect"
                 [placeholder]="'Select Statistics'"
@@ -86,12 +77,12 @@
                 (onSelectAll)="onSelectAll($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
-          </form>
+        
         </div>
-    
     </div>
   </div>
-<div class="table" style="margin:0;width: 1025px;">
+</form>
+<div class="table" style="margin:0;">
     <div class="table-responsive">
         <div class="example-header"  style="padding: 20px;padding-left: 15px;">
             <button [disabled]="isDisabled"(click)="onsubmit()" mat-raised-button mat-button color="primary" width="250px"style="background-color: #6fa6cb;
