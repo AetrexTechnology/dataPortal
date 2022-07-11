@@ -8,6 +8,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ThreeDFeetService } from 'src/app/threedfeetmodule/threedfeet/three-d-feet.service';
 
+declare let THREE: any;
+
 // export class MyErrorStateMatcher implements ErrorStateMatcher
 //   isErrorState(control: FormControl, form: FormGroupDirective | NgForm): boolean {
 //     throw new Error('Method not implemented.');
@@ -255,8 +257,7 @@ export class ThreeDfootComponent implements OnInit {
               this.scan_hash = data['matched_foot'].scan_hash;
               this.launch3dfoot(this.scan_hash);
               console.log("this is the output "+ this.scan_hash);
-                 }
-            else{
+            } else {
               console.log('data not available')
             }
           },(err:HttpErrorResponse)=>{
@@ -264,10 +265,8 @@ export class ThreeDfootComponent implements OnInit {
             this.onload = true;
             console.log("no data Available Hence showing static data")
             // this.data = this.staticdata;
-        });
-        }
-      
-      else{
+          });
+        } else {
         this.scan_hash = '779fa3cc0dfc27a088539ece60d1166a518a27088c6ed3781a6ee5029e07d3e4'
         this.launch3dfoot(this.scan_hash);
     }
@@ -277,6 +276,105 @@ export class ThreeDfootComponent implements OnInit {
       console.log('error')
     }
   }
+
+  /**
+   * Function to fetch obj files for both left and right foot
+   */
+  async downloadSTL(){
+    if(this.fetch3dfootForm.valid) {
+      if(this.fetch3dfootForm.value) {
+        var baseURL = "https://s3.amazonaws.com/aetrex-scanneros-scans/PROD/"
+        var leftObj = "/CurrentTest/3DModel/left_foot.obj"
+        var rightObj = "/CurrentTest/3DModel/right_foot.obj"
+        if(this.fetch3dfootForm.value.items !== 'United States') {
+          let region = this.fetch3dfootForm.value.items;
+          let gender = this.fetch3dfootForm.value.items2;
+          let shoe_size = this.fetch3dfootForm.value.items3;         
+          this.apiService.get3dfoot(region,gender,shoe_size).subscribe(async data=>{
+            if (data) {
+              this.scan_hash = await data['matched_foot'].scan_hash;              
+              this.lfoot = await baseURL + this.scan_hash + leftObj;
+              this.rfoot = await baseURL + this.scan_hash + rightObj;    
+              this.stlDownload("left_foot", this.lfoot);
+              setTimeout(() => {
+                this.stlDownload("right_foot", this.rfoot);
+              } , 1000);
+              console.log("this is the output "+ this.scan_hash, this.lfoot, this.rfoot);
+            } else {
+              console.log('data not available')
+            }
+          }, (err:HttpErrorResponse)=>{
+            this.load3dFoot = false;
+            this.onload = true;
+            console.log("no data Available Hence showing static data")
+            // this.data = this.staticdata;
+          });
+        } else {
+          console.log('United States');          
+          this.scan_hash = '779fa3cc0dfc27a088539ece60d1166a518a27088c6ed3781a6ee5029e07d3e4'
+          this.lfoot = await baseURL + this.scan_hash + leftObj;
+          this.rfoot = await baseURL + this.scan_hash + rightObj; 
+          this.stlDownload("left_foot", this.lfoot);
+          setTimeout(() => {
+            this.stlDownload("right_foot", this.rfoot);
+          } , 1000);
+        }
+      }
+    } else{
+      console.log('error')
+    }   
+  }
+
+ /**
+  * Function to download stl files for both left and right foot
+  *  
+  * @param foot string
+  * @param objUrl string
+  */
+  public stlDownload(foot: string, objUrl: string): void {
+    console.log(`stlDownload() foot:${foot} objUrl:${objUrl}`);
+    
+    const loader = new THREE.OBJLoader();
+      // load a resource
+    loader.load(
+        // resource URL
+        objUrl,
+        // called when resource is loaded
+        async function ( object ) {
+          const scene = new THREE.Scene();
+          scene.add( object );
+          var exporter = new THREE.STLExporter();
+          var str = exporter.parse( scene ); // Export the scene
+          let blob = new Blob( [str], { type : 'text/plain' } ); // Generate Blob from the string
+          
+           // create a new handle
+           const opts = {
+            types: [{
+              description: 'STL file',
+              accept: {'model/stl': ['.stl']},
+            }],
+          };
+
+          var link = document.createElement('a');
+          link.style.display = 'none';
+          document.body.appendChild(link);
+          link.href = URL.createObjectURL(blob);
+          link.download = foot+'.stl';
+          link.click();
+        },
+        // called when loading is in progresses
+        function ( xhr ) {
+          console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        },
+        // called when loading has errors
+        function ( error ) {
+          console.error(`stlDownload() OBJLoader error:`);
+          console.error(error);
+        }
+    );
+  }
+
+
   launch3dfoot(scan_hash:any){
     let url = "https://s3.amazonaws.com/aetrex-scanneros-scans/PROD/"
     let url2 = "/CurrentTest/3DModel/left_foot.obj"

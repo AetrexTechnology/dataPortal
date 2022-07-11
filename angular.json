@@ -31,8 +31,11 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss","src/assets/bootstrap.min.css"
             ],
-            "scripts": ["src/assets/tableau.js","src/assets/fitgenius_widget.js",
-            	"src/assets/bootstrap.min.js"]
+            "scripts": [
+              "src/assets/tableau.js","src/assets/fitgenius_widget.js",
+            	"src/assets/bootstrap.min.js",
+              "node_modules/three/examples/js/exporters/STLExporter.js"  
+            ]
           },
           "configurations": {
             "production": {
