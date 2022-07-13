@@ -1,271 +1,128 @@
 <div style="margin-right:10px;min-height:100%;padding: 10px;"> 
-  <form>
+ 
 <div class="flex-container" style="width: 100%;background-color: white;">
     <div style="flex-grow: 1">
+      <form [formGroup]="Gender">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Gender</p></label>
         <div *ngIf="dropdownListGender" class="container">
                 <ng-multiselect-dropdown
+                formControlName = "Gender"
                 class="multiselect"
                 [placeholder]="'Select Gender'"
                 [settings]="dropdownSettings"
                 [data]="dropdownListGender"
-                [(ngModel)]="selectedItems"
                 (onSelect)="onItemSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
+                (onSelectAll)="onItemSelect($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
+              <span *ngIf="Gender.touched && (!Gender.value.Gender || Gender.value.Gender.length==0)" class="validation">
+                * required {{Gender.value.Gender}}
+              </span>
         </div>
+        </form>
     </div>
     <div style="flex-grow: 1">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Country</p></label>
+        <form [formGroup]="Country">
         <div *ngIf="dropdownListCountry" class="container">
-            <form [formGroup]="formGroup" (ngSubmit)="save()" (reset)="resetForm()">
                 <ng-multiselect-dropdown
+                formControlName = "Country"
                 class="multiselect"
                 [placeholder]="'Select Country'"
                 [settings]="dropdownSettings"
                 [data]="dropdownListCountry"
-                [(ngModel)]="selectedItems"
                 (onSelect)="onItemSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
+                (onSelectAll)="onItemSelect($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
-          </form>
+              <span *ngIf="Country.touched && (!Country.value.Country || Country.value.Country.length==0)" class="validation">
+                * required {{Country.value.Gender}}
+              </span>
         </div>
+      </form>
     </div>
     <div style="flex-grow: 1">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">US-Size</p></label>
+        <form [formGroup]="USSize">
         <div *ngIf="dropdownListUSSize" class="container">
                 <ng-multiselect-dropdown
+                formControlName = "USSize"
                  class="multiselect"
                 [placeholder]="'Select US-Size'"
                 [settings]="dropdownSettings"
                 [data]="dropdownListUSSize"
-                [(ngModel)]="selectedItems"
                 (onSelect)="onItemSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
+                (onSelectAll)="onItemSelect($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
         </div>
-    
+      </form>
     </div>
     <div style="flex-grow: 1">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Measurements</p></label>
-        <div *ngIf="dropdownListMeasurements" class="container">        
+        <form [formGroup]="Measurements">     
+        <div *ngIf="dropdownListMeasurements" class="container">   
                 <ng-multiselect-dropdown
                  class="multiselect"
+                 formControlName = "Measurements"
                 [placeholder]="'Select Measurements'"
                 [settings]="dropdownSettings"
                 [data]="dropdownListMeasurements"
-                [(ngModel)]="selectedItems"
                 (onSelect)="onItemSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
+                (onSelectAll)="onItemSelect($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
         </div>
+      </form>
     </div>
     <div style="flex-grow: 1">
         <label style="color: black;"><p style="font-size: medium;margin-left: 15px;">Statistics</p></label>
+        <form [formGroup]="Statistics">     
         <div *ngIf="dropdownListStatistics" class="container">                
                 <ng-multiselect-dropdown
+                formControlName = "Statistics"
                  class="multiselect"
                 [placeholder]="'Select Statistics'"
                 [settings]="dropdownSettings"
                 [data]="dropdownListStatistics"
-                [(ngModel)]="selectedItems"
                 (onSelect)="onItemSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
+                (onSelectAll)="onItemSelect($event)"
                 (onDeSelect)="onItemDeSelect($event)">
               </ng-multiselect-dropdown>
-        
         </div>
+      </form>
     </div>
   </div>
-</form>
-<div class="table" style="margin:0;">
-    <div class="table-responsive">
-        <div class="example-header"  style="padding: 20px;padding-left: 15px;">
-            <button [disabled]="isDisabled"(click)="onsubmit()" mat-raised-button mat-button color="primary" width="250px"style="background-color: #6fa6cb;
-            color: black;">Fetch Data</button>
-        </div>
-        <mat-table *ngIf="showTable" #table [dataSource]="dataSource">
-            <!-- ['Gender', 'USSize', 'Length', 'width','Instep','ArchHeight','grith']; -->
-          <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-      
-          <!-- Gender Column -->
-          <ng-container matColumnDef="Gender">
-            <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Gender}} </mat-cell>
-          </ng-container>
-      
-          <!-- USSize Column -->
-          <ng-container matColumnDef="USSize">
-            <mat-header-cell *matHeaderCellDef> US-Size </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.USSize}} </mat-cell>
-          </ng-container>
-      
-          <!-- Length Column -->
-          <ng-container matColumnDef="AvgLength">
-            <mat-header-cell *matHeaderCellDef> AvgLength </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.AvgLength}} </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="StdLength">
-            <mat-header-cell *matHeaderCellDef> StdLength </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.StdLength}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Length95percentile">
-            <mat-header-cell *matHeaderCellDef>95%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Length95percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Length75percentile">
-            <mat-header-cell *matHeaderCellDef>75%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Length75percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Length50percentile">
-            <mat-header-cell *matHeaderCellDef>50%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Length50percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Length25percentile">
-            <mat-header-cell *matHeaderCellDef>25%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Length25percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Length5percentile">
-            <mat-header-cell *matHeaderCellDef>5%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Length5percentile}} </mat-cell>
-          </ng-container>
-
-        <!-- width Column -->
-
-        <ng-container matColumnDef="Avgwidth">
-            <mat-header-cell *matHeaderCellDef> Avgwidth </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Avgwidth}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="StdWidth">
-            <mat-header-cell *matHeaderCellDef> StdWidth </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.StdWidth}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Width95percentile">
-            <mat-header-cell *matHeaderCellDef>95%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Width95percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Width75percentile">
-            <mat-header-cell *matHeaderCellDef>75%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Width75percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Width50percentile">
-            <mat-header-cell *matHeaderCellDef>50%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Width50percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Width25percentile">
-            <mat-header-cell *matHeaderCellDef>25%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Width25percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Width5percentile">
-            <mat-header-cell *matHeaderCellDef>5%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Width5percentile}} </mat-cell>
-          </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="AvgInstep">
-            <mat-header-cell *matHeaderCellDef> AvgInstep </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.AvgInstep}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="StdInstep">
-            <mat-header-cell *matHeaderCellDef> StdInstep </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.StdInstep}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Instep95percentile">
-            <mat-header-cell *matHeaderCellDef>95%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Instep95percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Instep75percentile">
-            <mat-header-cell *matHeaderCellDef>75%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Instep75percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Instep50percentile">
-            <mat-header-cell *matHeaderCellDef>50%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Instep50percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Instep25percentile">
-            <mat-header-cell *matHeaderCellDef>25%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Instep25percentile}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Instep5percentile">
-            <mat-header-cell *matHeaderCellDef> 5% Instep</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Instep5percentile}} </mat-cell>
-          </ng-container>
-<!-- ArchHeight Column -->
-    <ng-container matColumnDef="AvgArchHeight">
-        <mat-header-cell *matHeaderCellDef> AvgArchHeight </mat-header-cell>
-        <mat-cell *matCellDef="let TableData"> {{TableData.AvgArchHeight}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="StdArchHeight">
-        <mat-header-cell *matHeaderCellDef> StdArchHeight </mat-header-cell>
-        <mat-cell *matCellDef="let TableData"> {{TableData.StdArchHeight}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ArchHeight95percentile">
-        <mat-header-cell *matHeaderCellDef>95%</mat-header-cell>
-        <mat-cell *matCellDef="let TableData"> {{TableData.ArchHeight95percentile}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ArchHeight75percentile">
-        <mat-header-cell *matHeaderCellDef>75%</mat-header-cell>
-        <mat-cell *matCellDef="let TableData"> {{TableData.ArchHeight75percentile}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ArchHeight50percentile">
-        <mat-header-cell *matHeaderCellDef>50%</mat-header-cell>
-        <mat-cell *matCellDef="let TableData"> {{TableData.ArchHeight50percentile}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ArchHeight25percentile">
-        <mat-header-cell *matHeaderCellDef>25%</mat-header-cell>
-        <mat-cell *matCellDef="let TableData"> {{TableData.ArchHeight25percentile}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ArchHeight5percentile">
-        <mat-header-cell *matHeaderCellDef>5%</mat-header-cell>
-        <mat-cell *matCellDef="let TableData"> {{TableData.ArchHeight5percentile}} </mat-cell>
-    </ng-container>
-<!-- grith Column -->
-
-        <ng-container matColumnDef="AvgGirth">
-            <mat-header-cell *matHeaderCellDef> AvgGirth </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.AvgGirth}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="StdGirth">
-            <mat-header-cell *matHeaderCellDef> StdGirth </mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.StdGirth}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Girth95percentile">
-            <mat-header-cell *matHeaderCellDef>95%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Girth95percentile}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Girth75percentile">
-            <mat-header-cell *matHeaderCellDef>75%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Girth75percentile}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Girth50percentile">
-            <mat-header-cell *matHeaderCellDef>50%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Girth50percentile}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Girth25percentile">
-            <mat-header-cell *matHeaderCellDef>25%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Girth25percentile}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Girth5percentile">
-            <mat-header-cell *matHeaderCellDef>5%</mat-header-cell>
-            <mat-cell *matCellDef="let TableData"> {{TableData.Girth5percentile}} </mat-cell>
-        </ng-container>
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </mat-table>
-      </div>
+  <div class="example-header" *ngIf="Statistics.valid && Measurements.valid && USSize.valid && Country.valid && Gender.valid" style="padding: 20px;padding-left: 15px;">
+    <button class="fetchData" (click)="onsubmit()" mat-raised-button mat-button color="primary" width="250px">Fetch Data</button>
 </div>
+<div class="example-header" *ngIf="!(Statistics.valid && Measurements.valid && USSize.valid && Country.valid && Gender.valid)" style="padding: 20px;padding-left: 15px;">
+  <button class="fetchData" [disabled]="true" (click)="onsubmit()" mat-raised-button mat-button color="primary" width="250px">Fetch Data</button>
+</div>
+<div *ngIf="showTable"  style="margin:0;">
+  <!-- <button mat-raised-button (click)="addColumn()" style="margin-left:85%;margin-bottom:5px;"> Download csv </button> -->
+  <button mat-raised-button style="margin-left:85%;margin-bottom:5px;" (click)="exporter.exportTable('csv',{fileName:'DataPortal_data'}) ">Downalod CSV</button> 
+  <div class="table-responsive example-container ">
+      <mat-table matTableExporter #table [dataSource]="dataSource" #exporter="matTableExporter" class="mat-elevation-z8" >
+          <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
+              <mat-header-cell *matHeaderCellDef style="position:sticky;">{{disCol}}</mat-header-cell>
+              <mat-cell *matCellDef="let element "> {{element[disCol]}}
+              </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true" style="background-color: #d9eaef;position: sticky !important;"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+</div>
+  <div *ngIf="Nodata">
+    <h3> No data Available for the selection </h3>
+  </div>
 <div *ngIf="showTable" style="text-align:center;padding: 5px;margin-right:60px;">
   <button (click)="openDialog()" class="MDbutton" > 
-      Measurement Definitions</button>
+      Measurement Definitions
+  </button>
   <!-- <a  class="example-icon" (click)="openDialog()" mat-raised-button style="background-color:rgb(111, 166, 203);color: #131212d9;margin: 16px ">Measurement Definitions</a> -->
 </div>
 </div>
-
 
 

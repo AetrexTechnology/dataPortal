@@ -27,10 +27,11 @@ import { SharedServiceService } from '../app/shared-service.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { DataexportComponent } from './dataexport/dataexport.component';
 import { ThreedfeetmoduleModule } from './threedfeetmodule/threedfeetmodule.module';
-import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatDialogModule} from '@angular/material/dialog'; 
 import { AppService } from './app.service';
 import { DialogComponent } from './dialog/dialog.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { MatTableExporterModule } from 'mat-table-exporter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { DialogComponent } from './dialog/dialog.component';
     TableauComponent,
     ThreeDfootComponent,
     DataexportComponent,
-    DialogComponent
+    DialogComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ import { DialogComponent } from './dialog/dialog.component';
     MatTableModule,
     MatSelectModule,
     ThreedfeetmoduleModule,
+    MatTableExporterModule,
     MatDialogModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],

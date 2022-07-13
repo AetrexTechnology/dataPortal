@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { SpinnerService } from '../spinner.service';
 
 import { CommonResponse } from "../common/common-response";
 @Injectable({
@@ -12,7 +13,7 @@ import { CommonResponse } from "../common/common-response";
 export class ApiService {
   private endPoint:string = "https://reqres.in/api/";
   loginStatus = new BehaviorSubject<boolean>(this.hasToken());
-  constructor(private http: HttpClient, private cookieService: CookieService, private router: Router ) { 
+  constructor(private http: HttpClient, private cookieService: CookieService, private router: Router, private spinnerservice: SpinnerService) { 
 
   }
   /**
@@ -80,7 +81,16 @@ export class ApiService {
       }
       return this.http.post<any>(`https://dataportalapi.aetrextechnology.com/average3dfoot`,json)
   }
-
+    public getTableData(resultData:any):Observable<HttpResponse<any>>{
+      const json = {
+        "country": resultData.CountryArray,
+        "gender": resultData.GenderArray,
+        "us_size": resultData.USSizeArray,
+        "measurements": resultData.MeasurementsArray,
+        "statistics": resultData.StatisticsArray
+        }
+      return this.http.post<any>(`https://dataportalapi.aetrextechnology.com/dataexport`,json)
+    }
   logout(){
     this.loginStatus.next(false);
 

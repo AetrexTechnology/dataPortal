@@ -24,6 +24,28 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
         -ms-overflow-style: none;
         scrollbar-width: none; /* Firefox */
       } } 
+
+      /* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(255, 255, 255); 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(169, 166, 166); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #656565; 
+}
       .MDbutton {
         display: inline-block;
     line-height: 1.5;
