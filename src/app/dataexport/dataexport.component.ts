@@ -33,6 +33,10 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     dropdownListMeasurements = [];
     dropdownListStatistics=[];
     selectedItems = [];
+    selectedItemsCountry = [];
+    selectedItemsUSSize = [];
+    selectedItemsMeasurements = [];
+    selectedItemsStatistics = [];
     dropdownSettings = {};
     displayedColumns = [];
     TableData:any
@@ -75,6 +79,10 @@ import { MatTableExporterModule } from 'mat-table-exporter';
         { item_id: 1, item_text: 'Male' },
         { item_id: 2, item_text: 'Female' }
       ];
+      this.selectedItems = [
+        { item_id: 1, item_text: 'Male' },
+        { item_id: 2, item_text: 'Female' }
+      ];
       this.dropdownListCountry = [
         { item_id: 1, item_text: 'United States' },
         { item_id: 2, item_text: 'Canada' },
@@ -94,6 +102,9 @@ import { MatTableExporterModule } from 'mat-table-exporter';
         { item_id: 9, item_text: 'South Korea' },
         { item_id: 10, item_text: 'Japan' },
         { item_id: 11, item_text: 'Russia' }
+      ];
+      this.selectedItemsCountry = [
+        { item_id: 1, item_text: 'United States' },
       ];
       this.dropdownListUSSize = [
         { item_id: 1, item_text: '2' },
@@ -132,7 +143,38 @@ import { MatTableExporterModule } from 'mat-table-exporter';
         { item_id: 34, item_text: '17.5' },
         { item_id: 35, item_text: '18' }
       ];
+      this.selectedItemsUSSize = [
+        { item_id: 11, item_text: '7' },
+        { item_id: 12, item_text: '7.5' },
+        { item_id: 13, item_text: '8' },
+        { item_id: 14, item_text: '8.5' },
+        { item_id: 15, item_text: '9' },
+        { item_id: 16, item_text: '9.5' },
+        { item_id: 17, item_text: '10' },
+        { item_id: 18, item_text: '10.5' },
+        { item_id: 19, item_text: '11' },
+        { item_id: 20, item_text: '11.5' },
+        { item_id: 21, item_text: '12' },
+      ];
       this.dropdownListMeasurements = [
+        { item_id: 1, item_text: 'Length' },
+        { item_id: 2, item_text: 'Width' },
+        { item_id: 3, item_text: 'Girth' },
+        { item_id: 4, item_text: 'ArchHeight' },
+        { item_id: 5, item_text: 'DorsalHeight' },
+        { item_id: 6, item_text: 'AnkleGirth' },
+        { item_id: 7, item_text: 'BallGirth' },
+        { item_id: 8, item_text: 'BallHeight' },
+        { item_id: 9, item_text: 'BallWidth' },
+        { item_id: 10, item_text: 'HeelWidth' },
+        { item_id: 11, item_text: 'InstepWidth' },
+        { item_id: 12, item_text: 'LengthToFirstMetHead' },
+        { item_id: 13, item_text: 'LengthToFifthMetHead' },
+        { item_id: 14, item_text: 'LongHeelGirth' },
+        { item_id: 15, item_text: 'ShortHeelGirth' },
+        { item_id: 16, item_text: 'MaxToeHeight' }
+      ];
+      this.selectedItemsMeasurements = [
         { item_id: 1, item_text: 'Length' },
         { item_id: 2, item_text: 'Width' },
         { item_id: 3, item_text: 'Girth' },
@@ -171,7 +213,26 @@ import { MatTableExporterModule } from 'mat-table-exporter';
         { item_id: 18, item_text: '90_percentile' },
         { item_id: 19, item_text: '95_percentile' }
       ];
-      this.selectedItems = [
+      this.selectedItemsStatistics = [
+        { item_id: 1, item_text: 'Average' },
+        { item_id: 2, item_text: 'Standard Deviation' },
+        { item_id: 3, item_text: '10_percentile' },
+        { item_id: 4, item_text: '15_percentile' },
+        { item_id: 5, item_text: '20_percentile' },
+        { item_id: 6, item_text: '30_percentile' },
+        { item_id: 7, item_text: '35_percentile' },
+        { item_id: 8, item_text: 'Average' },
+        { item_id: 9, item_text: '40_percentile' },
+        { item_id: 10, item_text: '50_percentile' },
+        { item_id: 11, item_text: '55_percentile' },
+        { item_id: 12, item_text: '60_percentile' },
+        { item_id: 13, item_text: '65_percentile' },
+        { item_id: 14, item_text: '70_percentile' },
+        { item_id: 15, item_text: '75_percentile' },
+        { item_id: 16, item_text: '80_percentile' },
+        { item_id: 17, item_text: '85_percentile' },
+        { item_id: 18, item_text: '90_percentile' },
+        { item_id: 19, item_text: '95_percentile' }
       ];
       this.dropdownSettings= {
         singleSelection: false,
