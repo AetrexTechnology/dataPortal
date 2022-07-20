@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonResponse } from "../common/common-response";
 import { ApiService } from "../auth/api.service";
+import { AuthService } from '../auth/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,23 +17,25 @@ export class LoginComponent implements OnInit {
   })
   public loginError:String;
 
-  constructor(private apiService:ApiService,private router: Router) { }
+  constructor(private apiService:ApiService, private authService: AuthService,private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(){  
-    if(this.loginForm.valid){
-      this.apiService.login(this.loginForm.value)
-      .subscribe((data) => { console.log(data);
-        if(data.status === 200 && !data.body.ErrorCode){
-            this.router.navigate(['/dashboard']);
-        }else{
-          this.loginError = data.body.message;
-        }        
-      },
-      error => this.loginError = error
-      )
-    }    
+
+    this.authService.startAuthentication();
+    // if(this.loginForm.valid){
+    //   this.apiService.login(this.loginForm.value)
+    //   .subscribe((data) => { console.log(data);
+    //     if(data.status === 200 && !data.body.ErrorCode){
+    //         this.router.navigate(['/dashboard']);
+    //     }else{
+    //       this.loginError = data.body.message;
+    //     }        
+    //   },
+    //   error => this.loginError = error
+    //   )
+    // }    
   }
 }

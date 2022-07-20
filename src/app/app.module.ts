@@ -29,6 +29,7 @@ import { DataexportComponent } from './dataexport/dataexport.component';
 import { ThreedfeetmoduleModule } from './threedfeetmodule/threedfeetmodule.module';
 import {MatDialogModule} from '@angular/material/dialog'; 
 import { AppService } from './app.service';
+import { AuthService } from './auth/auth.service';
 import { DialogComponent } from './dialog/dialog.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { MatTableExporterModule } from 'mat-table-exporter';
@@ -65,7 +66,7 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     MatDialogModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
-  providers: [ApiService, CookieService,SharedServiceService,AppService, {
+  providers: [ApiService,AuthService, CookieService,SharedServiceService,AppService, {
             provide: HTTP_INTERCEPTORS,
             useClass: ApiInterceptor,
             multi: true

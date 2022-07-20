@@ -25,6 +25,7 @@
     "ng-multiselect-dropdown": "^0.3.8",
     "ngx-cookie-service": "^10.0.1",
     "ngx-spinner": "^14.0.0",
+    "oidc-client": "^1.11.5",
     "rxjs": "~6.5.5",
     "three": "^0.97.0",
     "tslib": "^2.0.0",
